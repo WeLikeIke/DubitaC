@@ -1,0 +1,32 @@
+//_triangleArea_description//
+
+//_main_//
+float fun(float b, float h){
+	return b * h * 0.5;
+};
+
+//_limits_//
+b, h :: (0, :)
+
+//_tags_//
+Operations
+
+//_hints_//
+_triangleArea_hint_1
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 1, 2) == 1);
+	CHECK(fun(TIMEOUT, 3, 1) == 1.5);
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 0.1, 20) == 1);
+	CHECK(fun(TIMEOUT, 13, 12) == 78);
+	CHECK(fun(TIMEOUT, 0.3, 0.8) == 0.12);
+	CHECK(fun(TIMEOUT, 33, 17) == 280.5);
+};

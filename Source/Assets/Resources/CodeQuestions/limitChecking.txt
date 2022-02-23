@@ -1,0 +1,52 @@
+//_limitChecking_description//
+
+#include<math.h>
+
+//_main_//
+bool fun(int s, int left, int right, float helper){
+	if(left > right){return false;}
+	if(s < left){
+		if(helper < 1){
+			s = ceil(s/helper);
+		}else{
+			s = ceil(s*helper);
+		}
+	}
+	
+	if(s > right){
+		if(helper < 1){
+			s = floor(s*helper);
+		}else{
+			s = floor(s/helper);
+		}
+	}
+	return (left <= s && s <= right);
+};
+
+//_limits_//
+helper :: (0,:)
+
+//_tags_//
+Conditions,Operations
+
+//_hints_//
+_limitChecking_hint_1, _limitChecking_hint_2
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 2, 10, 14, 6) == true);
+	CHECK(fun(TIMEOUT, 1, -1, 1, 0.1) == true);
+	CHECK(fun(TIMEOUT, 8, -2, 3, 2) == false);
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 2, 10, 14, 4.7) == true);
+	CHECK(fun(TIMEOUT, 3, 3, 3, 10) == true);
+	CHECK(fun(TIMEOUT, 1, 20, 10, 11) == false);
+	CHECK(fun(TIMEOUT, 10, 3, 7, 2.2) == true);
+	CHECK(fun(TIMEOUT, 33, 2, 3, 12) == true);
+};

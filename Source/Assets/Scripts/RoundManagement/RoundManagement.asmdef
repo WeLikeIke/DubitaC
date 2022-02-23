@@ -1,0 +1,22 @@
+{
+    "name": "RoundManagement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ab7adca8cfa00374cb846b5b8f1d70b7",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:527d0bca67f57ff49b9d44b1b060f37a",
+        "GUID:74327f5333c337145b1f1e09a5309e3d",
+        "GUID:12e2f7f25126fc3459119a25e104a413",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

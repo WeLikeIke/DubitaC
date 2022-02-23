@@ -1,0 +1,75 @@
+//_structTraversal_description//
+
+struct Node {
+	Node* left;
+	Node* right;
+	int value;
+};
+
+int fun(Node* root, int l);
+
+//_main_//
+int fun(int l){
+	Node* root = new Node();
+	root->value = 7;
+	
+	Node* left = new Node();
+	left->value = 3;
+	
+	Node* right = new Node();
+	right->value = 1;
+	
+	root->left = left;
+	root->right = right;
+	
+	left = new Node();
+	left->value = 15;
+	
+	root->left->left = left;
+	
+	right = new Node();
+	right->value = 31;
+	
+	root->left->right = right;
+	
+	return fun(root, l);
+};
+
+//_question_//
+int fun(Node* root, int leftTurns){
+	Node* temp = root;
+	int result = root->value;
+	for(int i = 0; i < leftTurns; i++){
+		temp = temp->left;
+		result += temp->value;
+	}
+	while(temp->right != nullptr){
+		temp = temp->right;
+		result += temp->value;
+	}
+	
+	return result;
+};
+
+//_limits_//
+l :: [0,2]
+
+//_tags_//
+Loops,Pointers
+
+//_hints_//
+_structTraversal_hint_1, _structTraversal_hint_2, _structTraversal_hint_3
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 1) == 41);
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 0) == 8);
+	CHECK(fun(TIMEOUT, 2) == 25);
+};

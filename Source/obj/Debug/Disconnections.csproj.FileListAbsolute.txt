@@ -1,0 +1,2 @@
+C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\obj\Debug\Disconnections.csproj.AssemblyReference.cache
+C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\obj\Debug\Disconnections.csproj.CoreCompileInputs.cache

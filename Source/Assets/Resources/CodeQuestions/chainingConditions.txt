@@ -1,0 +1,38 @@
+//_chainingConditions_description//
+
+//_main_//
+bool fun(int f, int t, string c){
+	if(c == "and"){return (f == 0);}
+	if(c == "or"){return (t > 0);}
+	if((f + t) == 1){return f && !t;}
+	return false;
+};
+
+//_limits_//
+f, t :: [0, :)
+c :: {"and", "or", "not"}
+
+//_tags_//
+Conditions
+
+//_hints_//
+_chainingConditions_hint_1, _chainingConditions_hint_2
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 1, 2, "and") == false);
+	CHECK(fun(TIMEOUT, 1, 2, "or") == true);
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 0, 20, "and") == true);
+	CHECK(fun(TIMEOUT, 0, 20, "or") == true);
+	CHECK(fun(TIMEOUT, 2, 0, "and") == false);
+	CHECK(fun(TIMEOUT, 2, 0, "or") == true);
+	CHECK(fun(TIMEOUT, 0, 0, "and") == true);
+	CHECK(fun(TIMEOUT, 33, 17, "not") == true);
+};

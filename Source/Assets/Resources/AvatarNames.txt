@@ -1,0 +1,4 @@
+Cat_0
+Slime_0
+Sheriff_200
+Sword_200

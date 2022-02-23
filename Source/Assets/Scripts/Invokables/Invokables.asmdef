@@ -1,0 +1,16 @@
+{
+    "name": "Invokables",
+    "rootNamespace": "",
+    "references": [
+        "GUID:527d0bca67f57ff49b9d44b1b060f37a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,34 @@
+//_type_// //_name_//(int __timeout__, //_full_arguments_//){
+    std::mutex __mutex__;
+    std::condition_variable __conVal__;
+    std::exception_ptr __exPtr__ = nullptr;
+    bool __wakeUp__ = false;
+    //_type_// __retVal__;
+    
+    std::thread __thread__([&__conVal__, &__exPtr__, &__wakeUp__, &__retVal__, //_&_arguments_//](){
+        try{
+            __retVal__ = //_name_//(//_name_arguments_//);
+        }catch(...){
+            __exPtr__ = std::current_exception();
+        }
+        __wakeUp__ = true;
+        __conVal__.notify_one();
+    });
+    
+    __thread__.detach();
+    
+    {
+        std::unique_lock<std::mutex> __lock__(__mutex__);
+        if(__conVal__.wait_for(__lock__, std::chrono::seconds(__timeout__), [&__exPtr__, &__wakeUp__](){
+            return (__wakeUp__ || (__exPtr__ != nullptr));
+        })){
+            if(__exPtr__ != nullptr){
+                std::rethrow_exception(__exPtr__);
+            }
+        }else{
+            throw std::runtime_error("Timeout");
+        }
+    }
+    
+    return __retVal__;
+}

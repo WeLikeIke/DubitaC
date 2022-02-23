@@ -1,0 +1,20 @@
+{
+    "name": "Avatars",
+    "rootNamespace": "",
+    "references": [
+        "GUID:527d0bca67f57ff49b9d44b1b060f37a",
+        "GUID:3a01573693d05714295e604a46235e3c",
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:e0cd26848372d4e5c891c569017e11f1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

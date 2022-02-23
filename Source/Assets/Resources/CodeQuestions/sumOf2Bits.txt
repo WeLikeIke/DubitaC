@@ -1,0 +1,32 @@
+//_sumOf2Bits_description//
+
+//_main_//
+bool fun(int s, bool b1, bool b2){
+	if(s > 1){return true;}
+	if(s == 1){return (!(b1 && b2));}
+	return false;
+};
+
+//_tags_//
+Conditions
+
+//_hints_//
+_sumOf2Bits_hint_1, _sumOf2Bits_hint_2
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 10, true, false) == true);
+	CHECK(fun(TIMEOUT, 1, false, true) == true);
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 2, true, true) == true);
+	CHECK(fun(TIMEOUT, 2, false, false) == true);
+	CHECK(fun(TIMEOUT, 0, false, false) == false);
+	CHECK(fun(TIMEOUT, 1, true, true) == false);
+	CHECK(fun(TIMEOUT, 33, true, true) == true);
+};

@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AvatarAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 6958a3a4bbf973b4fa9972d4fef0ec83, type: 3}
+    totalSpriteSurfaceArea: 4096
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 904568731348038867, guid: abaec751f93b58245bec888535bdc8a1, type: 3}
+  - {fileID: -5694297122078007268, guid: abaec751f93b58245bec888535bdc8a1, type: 3}
+  - {fileID: -7464464770808431200, guid: abaec751f93b58245bec888535bdc8a1, type: 3}
+  - {fileID: 3969310160846602648, guid: abaec751f93b58245bec888535bdc8a1, type: 3}
+  - {fileID: 7283596075420768329, guid: d7cb45d249dd43041909ba6329d88f50, type: 3}
+  - {fileID: 416226442670765021, guid: d7cb45d249dd43041909ba6329d88f50, type: 3}
+  - {fileID: 5592212075315178924, guid: d7cb45d249dd43041909ba6329d88f50, type: 3}
+  - {fileID: 6188312625755657535, guid: d7cb45d249dd43041909ba6329d88f50, type: 3}
+  - {fileID: 4245980103970087629, guid: 32dbe4d339955a64891c396ea2b3d5c4, type: 3}
+  - {fileID: 649497356466682175, guid: 32dbe4d339955a64891c396ea2b3d5c4, type: 3}
+  - {fileID: -4255101797144252355, guid: 32dbe4d339955a64891c396ea2b3d5c4, type: 3}
+  - {fileID: 2186674751838014783, guid: 32dbe4d339955a64891c396ea2b3d5c4, type: 3}
+  - {fileID: 6511563259256703142, guid: 48c7411c2c93f6945a43fa00dbbdc7a6, type: 3}
+  - {fileID: 4467748593363063297, guid: 48c7411c2c93f6945a43fa00dbbdc7a6, type: 3}
+  - {fileID: -2578870469518326720, guid: 48c7411c2c93f6945a43fa00dbbdc7a6, type: 3}
+  - {fileID: 8456337604554199943, guid: 48c7411c2c93f6945a43fa00dbbdc7a6, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Sheriff_200_2
+  - Sheriff_200_3
+  - Sheriff_200_0
+  - Sheriff_200_1
+  - Slime_0_1
+  - Slime_0_0
+  - Slime_0_3
+  - Slime_0_2
+  - Cat_0_1
+  - Cat_0_0
+  - Cat_0_3
+  - Cat_0_2
+  - Sword_200_0
+  - Sword_200_1
+  - Sword_200_2
+  - Sword_200_3
+  m_RenderDataMap: {}
+  m_Tag: AvatarAtlas
+  m_IsVariant: 0

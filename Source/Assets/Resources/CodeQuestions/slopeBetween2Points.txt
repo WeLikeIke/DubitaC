@@ -1,0 +1,29 @@
+//_slopeBetween2Points_description//
+
+//_main_//
+float fun(float x1, float y1, float x2, float y2){
+	return (y1 - y2) / (x1 - x2);
+};
+
+//_tags_//
+Operations
+
+//_hints_//
+_slopeBetween2Points_hint_1, _slopeBetween2Points_hint_2
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 0, 2, -1, 1) == 1);
+	CHECK(fun(TIMEOUT, -3, 3, 3, -3) == -1);
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 0, 5, 1, 5) == 0);
+	CHECK(fun(TIMEOUT, 5, 5, 1, 0) == 1.25);
+	CHECK(fun(TIMEOUT, -2, -1, -4, 4) == -2.5);
+	CHECK(fun(TIMEOUT, 40, 100, 0, 0) ==  2.5);
+};

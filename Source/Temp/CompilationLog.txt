@@ -1,0 +1,100 @@
+# Starting compiling UnityEngine.TestRunner.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-1cb66b7aa52bfec4d966cbf3bc5d59c2
+# Starting compiling UnityEngine.UI.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-61a4b88f944f9a24c94b2393d4a497dd
+# Starting IL post processing on UnityEngine.TestRunner.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-8e17eed44f5c49d49876b75d554e1695
+# Starting IL post processing on UnityEngine.UI.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-bb605582af91a1e40a8180a59505e9d5
+# Starting compiling Unity.Timeline.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-381ff9c28eef767458b017d787748db8
+# Starting compiling Unity.TextMeshPro.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-ff45c4f12619c774dab3282b6e57975b
+# Starting compiling Unity.Mathematics.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-c4d1d59c5cbe36e4e9d1199117c16af0
+# Starting compiling Unity.Burst.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-8f51eb054febe7d42a8456ca66f0fe82
+# Starting IL post processing on Unity.Timeline.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-1aa197a305e99d940a5c4b33950d0e55
+# Starting IL post processing on Unity.TextMeshPro.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-79ec9e57bb8ff7b419771ee798c037fe
+# Starting compiling SelfContained.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-f686076b8e222b64db7459d17cbf5e2a
+# Starting IL post processing on Unity.Burst.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-45b44629522f179459fd5af1263c4d3e
+# Starting IL post processing on SelfContained.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-3d35d23d9e4b6184eb31032d5af75b58
+# Starting IL post processing on Unity.Mathematics.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-f1f8bd63d22721941b218c6599f9982e
+# Starting compiling Unity.Collections.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-c8945fc8144e3a4468a4a66deda1c47f
+# Starting IL post processing on Unity.Collections.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-895aa5a4e08e84c4aadf4f8386b7dfab
+# Starting compiling Unity.Netcode.Runtime.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-edd1307c6d77e8b4caf39308d2075393
+# Starting IL post processing on Unity.Netcode.Runtime.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-bff722f774b53e743849f3c79f9ac7cf
+# Starting compiling Unity.Netcode.Components.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-a48e39faca9255942a94ee55204a4d86
+# Starting compiling Statics.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-6b1128e4529bb4d42a555674d6c97b2b
+# Starting compiling Invokables.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-d1619497e4e871a488d35b315dba623e
+# Starting compiling TextManagement.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-99708ae6be638af4d95d205dc18506a8
+# Starting compiling Lobbies.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-80b1143e8322fc340b5e8d308e5e1ba9
+# Starting compiling NetcodeRequired.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-af40f510fc9e93a44a793760c6c35084
+# Starting compiling SceneMenagement.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-a6aad9ddd45924945aab338cc7f6bebe
+# Starting IL post processing on Unity.Netcode.Components.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-8ad6daf04aba3fa4484e155774a6ce2e
+# Starting IL post processing on Statics.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-ed832ab4cacd8364387fee8b4e654cf7
+# Starting IL post processing on Invokables.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-e01ce608b94e75d49996a60f317fc57f
+# Starting IL post processing on TextManagement.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-1a205e395ae07364cb79b5513dc7ea8d
+# Starting IL post processing on NetcodeRequired.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-e7b9a8e0b41d428418bde07d228a8187
+# Starting IL post processing on Lobbies.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-452a4af2b7499c84ab70b88fff721de3
+# Starting IL post processing on SceneMenagement.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-8b5ef9ea074b81a448e6074e54fe44a1
+# Starting compiling Gameplay.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-6c0cfb157a75c2b4599460f3493519dc
+# Starting IL post processing on Gameplay.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-b1e7592627862b444bb4c16aedde7a9a
+# Starting compiling Players.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-65170a140baf6944e9faeaf5bf9595c9
+# Starting compiling GeneralWrapper.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-b73e4a41ee9d8ad41a33a5f83de4805c
+# Starting compiling CodeQuestions.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-25d7249cf774a3045a316c9818e61a03
+# Starting compiling Persistence.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-e1519a60c1c634d41b96b47293a46682
+# Starting compiling Avatars.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-9c1e1c4fe2931874da046ed53932dc44
+# Starting compiling AutomaticDisplay.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-397916da3d2fbad46a55cdfd5bc0a0c4
+# Starting compiling Disconnections.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-a0fc41515f3312342a3d8334f0bdee3b
+# Starting compiling RoundManagement.dll
+C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-f1320ada37670c44b9cce9252f8d486a
+# Starting IL post processing on Players.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-c4becc58522326946b84dc3d9282fe87
+# Starting IL post processing on GeneralWrapper.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-1127370e9f386cf429c0f108418e4344
+# Starting IL post processing on CodeQuestions.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-0123bde1c5f8c5d45877381e39eb44d2
+# Starting IL post processing on Persistence.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-2467e003d9b0b3646a50b8756672362f
+# Starting IL post processing on Avatars.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-c4ce56eee79e5f5469134957a592651a
+# Starting IL post processing on AutomaticDisplay.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-6ae9f84dc4b2b7f4c9c091a697539263
+# Starting IL post processing on Disconnections.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-0d47d0ff8bb1a844a9573e05a7145a91
+# Starting IL post processing on RoundManagement.dll
+C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/MonoBleedingEdge/bin/mono.exe C:/Users/chio9/Desktop/Unity/2020.3.15f2/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe @C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Temp/UnityTempFile-f7ea54ad3fc264a4e882e3e6f7fdd235

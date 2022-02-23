@@ -1,0 +1,35 @@
+//_fibonacci_description//
+
+//_main_//
+int fun(int n){
+	if(n <= 1){
+		return n;
+	}
+	
+	return fun(n-1) + fun(n-2);
+};
+
+//_limits_//
+n :: [0,20]
+
+//_tags_//
+Recursion
+
+//_hints_//
+_fibonacci_hint_1, _fibonacci_hint_2
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 4) == 3);
+	CHECK(fun(TIMEOUT, 5) == 5);
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 0) == 0);
+	CHECK(fun(TIMEOUT, 1) == 1);
+	CHECK(fun(TIMEOUT, 20) == 6765);
+};

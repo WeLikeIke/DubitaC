@@ -1,0 +1,116 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "bb7efcf2-63cf-37b8-fa98-05e6d780cc79": {
+      "ProjectGuid": "bb7efcf2-63cf-37b8-fa98-05e6d780cc79",
+      "DisplayName": "GeneralScripts",
+      "ColorIndex": 0
+    },
+    "0016b059-cf67-c476-f524-c9e7eebdb4b7": {
+      "ProjectGuid": "0016b059-cf67-c476-f524-c9e7eebdb4b7",
+      "DisplayName": "Round0Scripts",
+      "ColorIndex": 1
+    },
+    "daf9e60d-8cfc-3808-af03-87b1a3ce0f9a": {
+      "ProjectGuid": "daf9e60d-8cfc-3808-af03-87b1a3ce0f9a",
+      "DisplayName": "Round12Scripts",
+      "ColorIndex": 2
+    },
+    "d05d6e3e-4239-c8fb-3c3b-f1d09e505b45": {
+      "ProjectGuid": "d05d6e3e-4239-c8fb-3c3b-f1d09e505b45",
+      "DisplayName": "TopLevelDependencies",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "File esterni",
+      "ColorIndex": -1
+    },
+    "5ce8b907-47a0-a0f0-5a85-4d824689db60": {
+      "ProjectGuid": "5ce8b907-47a0-a0f0-5a85-4d824689db60",
+      "DisplayName": "Avatars",
+      "ColorIndex": 4
+    },
+    "7ade4406-c833-9d44-1917-5164bd209277": {
+      "ProjectGuid": "7ade4406-c833-9d44-1917-5164bd209277",
+      "DisplayName": "Gameplay",
+      "ColorIndex": 5
+    },
+    "6b406ef8-d802-ddb4-49b4-1f0717ec9d0b": {
+      "ProjectGuid": "6b406ef8-d802-ddb4-49b4-1f0717ec9d0b",
+      "DisplayName": "SelfContained",
+      "ColorIndex": 6
+    },
+    "98520be9-d6b7-44a5-f730-353a8680fe08": {
+      "ProjectGuid": "98520be9-d6b7-44a5-f730-353a8680fe08",
+      "DisplayName": "AutomaticDisplay",
+      "ColorIndex": 7
+    },
+    "60e13f97-9732-0ffd-bf14-a684de2fc9c9": {
+      "ProjectGuid": "60e13f97-9732-0ffd-bf14-a684de2fc9c9",
+      "DisplayName": "RoundManagement",
+      "ColorIndex": 8
+    },
+    "036a336a-fc2f-8ef1-37ce-12d241a8cfa9": {
+      "ProjectGuid": "036a336a-fc2f-8ef1-37ce-12d241a8cfa9",
+      "DisplayName": "GeneralWrapper",
+      "ColorIndex": 9
+    },
+    "74c1d677-e16a-99f8-941a-7b69743b1f18": {
+      "ProjectGuid": "74c1d677-e16a-99f8-941a-7b69743b1f18",
+      "DisplayName": "Assembly-CSharp",
+      "ColorIndex": 10
+    },
+    "9e2e98e7-3a0a-046d-731b-74b118ecd32e": {
+      "ProjectGuid": "9e2e98e7-3a0a-046d-731b-74b118ecd32e",
+      "DisplayName": "Statics",
+      "ColorIndex": 11
+    },
+    "976c1bf5-fb9c-7a79-ceeb-0156d97c1dcc": {
+      "ProjectGuid": "976c1bf5-fb9c-7a79-ceeb-0156d97c1dcc",
+      "DisplayName": "TextManagement",
+      "ColorIndex": 12
+    },
+    "9ab9d75f-ac3b-3165-fe49-978bf5250b4e": {
+      "ProjectGuid": "9ab9d75f-ac3b-3165-fe49-978bf5250b4e",
+      "DisplayName": "Players",
+      "ColorIndex": 13
+    },
+    "ce7f1692-8e53-d401-101c-a562c970e070": {
+      "ProjectGuid": "ce7f1692-8e53-d401-101c-a562c970e070",
+      "DisplayName": "CodeQuestions",
+      "ColorIndex": 14
+    },
+    "2285863f-4730-70d6-25b3-c4b3cd7d7005": {
+      "ProjectGuid": "2285863f-4730-70d6-25b3-c4b3cd7d7005",
+      "DisplayName": "Persistency",
+      "ColorIndex": 15
+    },
+    "779c0dcb-a57b-e7f5-d922-c030dfff3705": {
+      "ProjectGuid": "779c0dcb-a57b-e7f5-d922-c030dfff3705",
+      "DisplayName": "SceneMenagement",
+      "ColorIndex": 0
+    },
+    "de1a8e29-05c6-6387-e4e4-beb67705f6c2": {
+      "ProjectGuid": "de1a8e29-05c6-6387-e4e4-beb67705f6c2",
+      "DisplayName": "Invokables",
+      "ColorIndex": 1
+    },
+    "ebf2e331-9b4f-0db2-b7db-589fbebb9caa": {
+      "ProjectGuid": "ebf2e331-9b4f-0db2-b7db-589fbebb9caa",
+      "DisplayName": "Disconnections",
+      "ColorIndex": 2
+    },
+    "1dcdf931-5195-7a92-1801-65b523450e58": {
+      "ProjectGuid": "1dcdf931-5195-7a92-1801-65b523450e58",
+      "DisplayName": "Lobbies",
+      "ColorIndex": 3
+    },
+    "1f150939-8c05-95fd-6797-677fbf5f26a2": {
+      "ProjectGuid": "1f150939-8c05-95fd-6797-677fbf5f26a2",
+      "DisplayName": "NetcodeRequired",
+      "ColorIndex": 4
+    }
+  },
+  "NextColorIndex": 5
+}

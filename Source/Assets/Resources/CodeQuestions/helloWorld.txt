@@ -1,0 +1,36 @@
+//_helloWorld_description//
+
+//_main_//
+string fun(int e){
+	string result = "Hello world";
+	for(; e > 0; e--){
+		result = result + "!";
+	}
+	
+	return result;
+};
+
+//_limits_//
+e :: [0,15)
+
+//_tags_//
+Loops
+
+//_hints_//
+_helloWorld_hint_1
+
+
+//_base_//
+
+TEST_CASE("Test", "[base]"){
+	CHECK(fun(TIMEOUT, 1) == "Hello world!");
+	CHECK(fun(TIMEOUT, 3) == "Hello world!!!");
+};
+
+//_final_//
+
+TEST_CASE("Edges", "[final]"){
+	CHECK(fun(TIMEOUT, 0) == "Hello world");
+	CHECK(fun(TIMEOUT, 2) == "Hello world!!");
+	CHECK(fun(TIMEOUT, 14) == "Hello world!!!!!!!!!!!!!!");
+};
