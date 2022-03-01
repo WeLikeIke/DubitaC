@@ -71,7 +71,7 @@ Since DubitaC is completely Open Source from version 1.2, the repository contain
 1. The complete source code, from scripts to Unity assets.
 2. The 2 latest builds, for Server and Client.
 3. The Automatic documentation created by doxygen.
-4. The Installer for the latest version.
+4. The Installer and installation script for the latest version.
 5. The original Thesis paper, with relative reference manual as an appendix.
 
 Feel free to contribute!

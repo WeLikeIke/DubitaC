@@ -1,5 +1,4 @@
-**ENG**
-Manual installation
+##ENG - Manual installation
 
 1. Download this folder.
 2. Extract all elements of the compressed folder into a folder of your choice.
@@ -9,8 +8,7 @@ Manual installation
 Inside each "Build" (the folders starting with Client and Server) you will find an executable file called DubitaC.exe.
 Clicking on either executable will start the game in the corresponding mode (Client or Server).
 
-**ITA**
-Installazione manuale
+##ITA - Installazione manuale
 
 1. Scarica questa cartella.
 2. Estrai tutti gli elementi della cartella compressa in una cartell a tua scelta.
