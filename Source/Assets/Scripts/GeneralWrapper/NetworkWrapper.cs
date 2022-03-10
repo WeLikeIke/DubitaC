@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 //DO NOT REMOVE THIS, IT IS NEEDED!
 using static SerializationExtensions;
@@ -17,12 +19,13 @@ public class NetworkWrapper : NetworkBehaviour {
 
     public bool isServerBuild;
     public Button continueButton;
+    public LocalizeStringEvent continueButtonText;
 
     public MySceneManager MSM;
 
     public GameObject serverPanel;
-    public TextMeshProUGUI numberOfPlayers;
-    public TextMeshProUGUI codeQuestionSolved;
+    public LocalizeStringEvent numberOfPlayers;
+    public LocalizeStringEvent codeQuestionSolved;
 
     //Only relevant for the clients
     public GameObject cosmeticPanel;
@@ -31,13 +34,13 @@ public class NetworkWrapper : NetworkBehaviour {
     //Only relevant for the server
     public Button startButton;
     public LobbyManager LM;
-    //private List<GameObject> lobbies = null;
     private Dictionary<ulong, databaseEntry> acceptedUsers = new Dictionary<ulong, databaseEntry>();
     private int doneCounter = 0;
 
     void Awake() { SetupBuildDifference(isServerBuild); }
 
     void Start() {
+
         // Only possible in the last scene
         if (NetworkManager.Singleton.IsServer){ ServerFinalSetup(); }
 
@@ -45,7 +48,10 @@ public class NetworkWrapper : NetworkBehaviour {
         Cosmetics.Init();
 
         //In case the scene was reloaded by a bad connection attempt, do not bother the user with the main menu again, go straight to the credentials interface
-        if (mainMenuPanel != null && !string.IsNullOrEmpty(DataManager.databaseFeedback)) { mainMenuPanel.SetActive(false); }
+        if (DataManager.wasRejected) { 
+            mainMenuPanel.SetActive(false);
+            DataManager.wasRejected = false;
+        }
     }
 
     /// <summary>
@@ -56,9 +62,11 @@ public class NetworkWrapper : NetworkBehaviour {
         //Do not try to setup the continue button in the last scene
         if(continueButton == null) { return; }
 
+        string currentBuild = "";
+
         if (isServerBuild) {
             //Change the label that the continue button will have
-            DataManager.currentBuild = "_continue_server";
+            currentBuild = "_server";
 
             //Change the behaviour that the continue button will have
             continueButton.onClick.AddListener(delegate {
@@ -68,7 +76,7 @@ public class NetworkWrapper : NetworkBehaviour {
 
         } else {
             //Change the label that the continue button will have
-            DataManager.currentBuild = "_continue_player";
+            currentBuild = "_player";
 
             //Change the behaviour that the continue button will have
             continueButton.onClick.AddListener(delegate {
@@ -76,6 +84,9 @@ public class NetworkWrapper : NetworkBehaviour {
             });
 
         }
+
+        //Required so that a localization local variable is set at runtime
+        ((LocalizedString)continueButtonText.StringReference["currentBuild"]).TableEntryReference = currentBuild;
     }
 
     /// <summary>
@@ -88,8 +99,11 @@ public class NetworkWrapper : NetworkBehaviour {
             totalClientsNumber += i;
         }
 
-        numberOfPlayers.SetText(totalClientsNumber.ToString());
-        codeQuestionSolved.SetText(DataManager.currentCodeQuestion.name);
+        ((IntVariable)numberOfPlayers.StringReference["numberOfClients"]).Value = totalClientsNumber;
+        numberOfPlayers.RefreshString();
+
+        ((StringVariable)codeQuestionSolved.StringReference["solvedQuestion"]).Value = DataManager.currentCodeQuestion.name;
+        codeQuestionSolved.RefreshString();
     }
 
     /// <summary>
@@ -236,7 +250,7 @@ public class NetworkWrapper : NetworkBehaviour {
 
 
     /// <summary>
-    /// Function to change the Avatr of a client that requested it.
+    /// Function to change the Avatar of a client that requested it.
     /// </summary>
     /// <param name="clientId">The id of the client that wants to change the Avatar.</param>
     /// <param name="spriteName">The name of the new Avatar.</param>

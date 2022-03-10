@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 /// <summary>
 /// Class responsible for spawning and managing the Avatars.
@@ -13,7 +13,8 @@ public class AvatarManager : MonoBehaviour {
     public GameObject avatarPrefab;
 
     public RectTransform avatarHolder;
-    public TextMeshProUGUI currentPoints;
+    public LocalizeStringEvent currentPointsText;
+    public ushort points;
 
     private List<AvatarUI> allAvatarUI = new List<AvatarUI>();
 
@@ -28,7 +29,8 @@ public class AvatarManager : MonoBehaviour {
         if (spawnedOnce) { return; }
             
         spawnedOnce = true;
-        currentPoints.SetText(DataManager.myData.progress.ToString());
+        points = DataManager.myData.progress;
+        currentPointsText.RefreshString();
 
         string[] orderedNames = SortByPoints(Cosmetics.GetAvatarNames());
 
@@ -38,7 +40,7 @@ public class AvatarManager : MonoBehaviour {
     /// <summary>
     /// Function to spawn the Avatars in the order given.
     /// </summary>
-    /// <param name="names">The names of the Avatars to spawn.</param>
+    /// <param name="orderedNames">The names of the Avatars to spawn.</param>
     private void SpawnAvatars(string[] orderedNames) {
         foreach (string name in orderedNames) {
             GameObject singleAvatar = Instantiate(avatarPrefab, avatarHolder);
@@ -53,7 +55,7 @@ public class AvatarManager : MonoBehaviour {
     /// Utility function that, given a list of avatar names, returns them ordered from lowest point requirement to highest.
     /// </summary>
     /// <param name="input">The list of avatr names to order.</param>
-    /// <returns></returns>
+    /// <returns>List of avatar names in increasing order of points threshold</returns>
     private string[] SortByPoints(string[] input) {
         int[] pointRequirements = new int[input.Length];
 

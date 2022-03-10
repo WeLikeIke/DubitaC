@@ -6,6 +6,9 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 /// <summary>
 /// General manager class for the slideshow scene.
@@ -17,27 +20,12 @@ public class SlideshowManager : NetworkBehaviour {
 
     private int doneCounter = 0;
     private List<int[]> finalScores = new List<int[]>();
-    private readonly string[] possibleLabels = new string[10]{"_return", "_timeout", "_not_compile", "_crash", "_correct_doubt",
-                                                "_half_doubt", "_wrong_doubt", "_terrible_doubt", "_no_doubt", "_unknown"};
 
-    public TextMeshProUGUI doubterUsername;
-    public LocalizableText expectedOrNoDoubtText;
-    public TextMeshProUGUI targetUsername;
+    //Localization
+    public LocalizeStringEvent mainText;
+    public LocalizeStringEvent finalEvaluation;
 
-    public LocalizableText expectedResult;
-    public TextMeshProUGUI expectedResultValue;
-
-    public TextMeshProUGUI predictedCorrectValue;
-
-    public TextMeshProUGUI givenInput;
-
-    public LocalizableText solutionResult;
-    public TextMeshProUGUI correctResult;
-
-    public LocalizableText finalEvaluation;
-
-    public List<TextMeshProUGUI> hideableText;
-
+    //References
     public PlayerSpawner PS;
     public ExecutionManager EM;
     public MySceneManager MSM;
@@ -132,36 +120,47 @@ public class SlideshowManager : NetworkBehaviour {
     private void SingleSlideshowStep(doubt currentDoubt, string currentServerResult, string currentUserResult, int doubterRank, int targetRank) {
         string[] usernamesByRank = DataManager.GetUsernameArray();
 
-        if (currentDoubt.clientId == currentDoubt.targetId) {
-            doubterUsername.SetText(usernamesByRank[doubterRank]);
-            expectedOrNoDoubtText.ChangeLabel("_not_expected");
-            targetUsername.SetText(usernamesByRank[targetRank]);
-
-            ClearBulkText();
-
-        } else {
-
-            doubterUsername.SetText(DataManager.GetClientUsername(currentDoubt.clientId));
-            expectedOrNoDoubtText.ChangeLabel("_expected");
-            targetUsername.SetText(DataManager.GetClientUsername(currentDoubt.targetId));
-
-            expectedResult.ChangeLabel(DecideLabel(currentDoubt.doubtType));
-            expectedResultValue.SetText(currentDoubt.expected.ToString());
-
-            predictedCorrectValue.SetText(currentDoubt.output.ToString());
-
-            givenInput.SetText(currentDoubt.input.ToString());
-
-            solutionResult.ChangeLabel(DecideLabel(currentUserResult));
-
-            correctResult.SetText(currentServerResult);
-
-            RestoreBulkText();
-        }
+        ((StringVariable)mainText.StringReference["doubter"]).Value = usernamesByRank[doubterRank];
+        ((StringVariable)mainText.StringReference["target"]).Value  = usernamesByRank[targetRank];
 
         (string label, Color textColor) = DecideLabel(currentDoubt.currentStatus);
-        finalEvaluation.ChangeLabel(label);
-        finalEvaluation.ChangeColor(textColor);
+        finalEvaluation.StringReference.SetReference("Strings", label);
+        finalEvaluation.GetComponent<TextMeshProUGUI>().color = textColor;
+
+        if (currentDoubt.clientId == currentDoubt.targetId) {
+            mainText.StringReference.SetReference("Strings", "_no_doubt_result");
+        } else {
+
+            string returnLabel;
+
+            if (currentDoubt.doubtType == DOUBTTYPE.NoCompilation) {
+                mainText.StringReference.SetReference("Strings", "_doubt_on_compilation_result");
+
+                if (string.IsNullOrEmpty(currentUserResult)) {
+                    returnLabel = "_correct_compilation";
+                } else {
+                    returnLabel = "_did_not_compile";
+                }
+
+            } else {
+                mainText.StringReference.SetReference("Strings", "_doubt_result");
+
+                ((LocalizedString)mainText.StringReference["doubtType"]).TableEntryReference = DecideLabel(currentDoubt.doubtType);
+                ((StringVariable)mainText.StringReference["possibleReturnValue"]).Value = currentDoubt.expected.ToString();
+                ((StringVariable)mainText.StringReference["expectedReturnValue"]).Value = currentDoubt.output.ToString();
+                ((StringVariable)mainText.StringReference["inputs"]).Value = currentDoubt.input.ToString();
+
+                string returnValue;
+                (returnLabel, returnValue) = DecideLabel(currentUserResult);
+
+                ((StringVariable)mainText.StringReference["actualReturnValue"]).Value = returnValue;
+                ((StringVariable)mainText.StringReference["correctReturnValue"]).Value = currentServerResult;
+            }
+
+            ((LocalizedString)mainText.StringReference["returnedType"]).TableEntryReference = returnLabel;
+        }
+
+        mainText.RefreshString();
     }
 
     /// <summary>
@@ -199,33 +198,33 @@ public class SlideshowManager : NetworkBehaviour {
     }
 
     /// <summary>
-    /// Utility function to transform an input <see cref="DOUBTTYPE"/> into a corresponding label from the <see cref="possibleLabels"/>.
+    /// Utility function to transform an input <see cref="DOUBTTYPE"/> into the appropriate label.
     /// </summary>
     /// <param name="t">Input <see cref="DOUBTTYPE"/> to decide the label for.</param>
-    /// <returns>The correct label from the <see cref="possibleLabels"/> string array.</returns>
+    /// <returns>The appropriate label.</returns>
     private string DecideLabel(DOUBTTYPE t) {
         switch (t) {
-            case DOUBTTYPE.Timeout:         return possibleLabels[1]; 
-            case DOUBTTYPE.NoCompilation:   return possibleLabels[2]; 
-            case DOUBTTYPE.Crash:           return possibleLabels[3];
+            case DOUBTTYPE.Timeout:         return "_timeout"; 
+            case DOUBTTYPE.NoCompilation:   return "_not_compile"; 
+            case DOUBTTYPE.Crash:           return "_crash";
         }
-        return possibleLabels[0];
+        return "_return";
     }
 
     /// <summary>
-    /// Utility function to transform an input string into a corresponding label from the <see cref="possibleLabels"/>.
+    /// Utility function to transform an input string into the appropriate label.
     /// </summary>
     /// <param name="s">Input string to decide the label for.</param>
-    /// <returns>The correct label from the <see cref="possibleLabels"/> string array, 
-    /// or the original string if it does not correspond to the predetermined ones.</returns>
-    private string DecideLabel(string s) {
+    /// <returns>Tuple containing the appropriate label and, if present, 
+    /// the actual string containing the return value, the second item of the tuple is empty otherwise..</returns>
+    private (string, string) DecideLabel(string s) {
         switch (s) {
-            case "Timeout":         return possibleLabels[1];
-            case "NoCompilation":   return possibleLabels[2];
-            case "Crash":           return possibleLabels[3];
-            case "":                return possibleLabels[9];
+            case "Timeout":         return ("_timedout", "");
+            case "NoCompilation":   return ("_did_not_compile", "");
+            case "Crash":           return ("_crashed", "");
+            case "":                return ("_unknown", "");
         }
-        return s;
+        return ("_returned", s);
     }
 
     /// <summary>
@@ -237,14 +236,14 @@ public class SlideshowManager : NetworkBehaviour {
     /// the correct color for the text.</returns>
     private (string, Color) DecideLabel(STATUS currentStatus) {
         switch (currentStatus) {
-            case STATUS.None:       return (possibleLabels[8], Color.black);
-            case STATUS.Correct:    return (possibleLabels[4], Cosmetics.correctColor);
-            case STATUS.Lost:       return (possibleLabels[6], Cosmetics.wrongColor);
-            case STATUS.Lucky:      return (possibleLabels[5], Cosmetics.buttonsColor);
-            case STATUS.Worst:      return (possibleLabels[7], Color.black);
-            case STATUS.Angry:      return (possibleLabels[6], Cosmetics.wrongColor);
-            case STATUS.Scared:     return (possibleLabels[5], Cosmetics.buttonsColor);
-            case STATUS.Regret:     return (possibleLabels[6], Cosmetics.wrongColor);
+            case STATUS.None:       return ("_no_doubt",        Color.black);
+            case STATUS.Correct:    return ("_correct_doubt",   Cosmetics.correctColor);
+            case STATUS.Lost:       return ("_wrong_doubt",     Cosmetics.wrongColor);
+            case STATUS.Lucky:      return ("_half_doubt",      Cosmetics.buttonsColor);
+            case STATUS.Worst:      return ("_terrible_doubt",  Color.black);
+            case STATUS.Angry:      return ("_wrong_doubt",     Cosmetics.wrongColor);
+            case STATUS.Scared:     return ("_half_doubt",      Cosmetics.buttonsColor);
+            case STATUS.Regret:     return ("_wrong_doubt",     Cosmetics.wrongColor);
         }
 
         Debug.LogError("Error, STATUS: " + currentStatus + " should never reach this point.");
@@ -353,32 +352,6 @@ public class SlideshowManager : NetworkBehaviour {
         }
         return finalPoints;
     }
-
-    /// <summary>
-    /// Utility function to clear the slideshow interface.
-    /// </summary>
-    private void ClearBulkText() {
-        expectedResult.ChangeLabel("");
-        expectedResultValue.SetText("");
-        predictedCorrectValue.SetText("");
-        givenInput.SetText("");
-        solutionResult.ChangeLabel("");
-        correctResult.SetText("");
-
-        foreach(TextMeshProUGUI t in hideableText) {
-            t.enabled = false;
-        }
-    }
-
-    /// <summary>
-    /// Utility function to restore the slideshow interface.
-    /// </summary>
-    private void RestoreBulkText() {
-        foreach (TextMeshProUGUI t in hideableText) {
-            t.enabled = true;
-        }
-    }
-
 
     #region ServerRpcs
 

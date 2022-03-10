@@ -4,9 +4,11 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Components;
 
 //DO NOT REMOVE THIS, IT IS NEEDED!
 using static SerializationExtensions;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 /// <summary>
 /// General manager of the doubting round.
@@ -32,7 +34,7 @@ public class DoubtManager : NetworkBehaviour {
     //Server control panel
     public Slider doneSlider;
     public GameObject serverPanel;
-    public TextMeshProUGUI[] readyListText;
+    public LocalizeStringEvent[] readyListText;
 
     //Loading panel
     public GameObject loadingPanel;
@@ -40,9 +42,10 @@ public class DoubtManager : NetworkBehaviour {
     public Button openDoubtPanelButton;
 
     public TMP_InputField givenInput;
+    public TMP_InputField expectedOutput;
     public TMP_InputField correctOutput;
 
-    public TMP_InputField expectedOutput;
+    public Button wrongReturnButton;
     public Button noCompileButton;
     public Button timeoutButton;
     public Button crashButton;
@@ -58,8 +61,13 @@ public class DoubtManager : NetworkBehaviour {
             serverPanel.SetActive(true);
 
             for (int i = 0; i < DataManager.lobbiesInUse; i++) {
-                readyListText[i].text = "0/" + matrixSize[i];
-                readyListText[i].rectTransform.parent.gameObject.SetActive(true);
+
+                ((IntVariable)readyListText[i].StringReference["lobbyNumber"]).Value = i;
+                ((IntVariable)readyListText[i].StringReference["readyClients"]).Value = 0;
+                ((IntVariable)readyListText[i].StringReference["clientsInLobby"]).Value = matrixSize[i];
+                readyListText[i].StringReference.SetReference("Strings", "_lobby_ready_info");
+
+                readyListText[i].gameObject.SetActive(true);
             }
         }
     }
@@ -114,14 +122,19 @@ public class DoubtManager : NetworkBehaviour {
     /// </summary>
     private void ResetDoubtPanel() {
         givenInput.text = "";
+        givenInput.interactable = false;
+
         correctOutput.text = "";
+        correctOutput.interactable = false;
 
         expectedOutput.text = "";
-        expectedOutput.interactable = true;
+        expectedOutput.interactable = false;
 
+        wrongReturnButton.interactable = true;
         noCompileButton.interactable = true;
         timeoutButton.interactable = true;
         crashButton.interactable = true;
+
         doubtButton.interactable = false;
     }
 
@@ -149,23 +162,53 @@ public class DoubtManager : NetworkBehaviour {
     /// </summary>
     /// <param name="b">The button that has just been pressed.</param>
     public void SelectButton(Button b) {
-        bool interaction = !expectedOutput.interactable;
-        expectedOutput.interactable = interaction;
+        //Any two buttons are both interactable only when nothing has been selected
+        bool interaction = !(timeoutButton.interactable && crashButton.interactable);
+
+        if (b == wrongReturnButton) {
+            noCompileButton.interactable   = interaction;
+            timeoutButton.interactable     = interaction;
+            crashButton.interactable       = interaction;
+
+            givenInput.interactable        = !interaction;
+            expectedOutput.interactable    = !interaction;
+            correctOutput.interactable     = !interaction;
+        }
 
         if (b == noCompileButton) {
-            timeoutButton.interactable = interaction;
-            crashButton.interactable = interaction;
+            wrongReturnButton.interactable = interaction;
+            timeoutButton.interactable     = interaction;
+            crashButton.interactable       = interaction;
+
+            givenInput.interactable        = false;
+            expectedOutput.interactable    = false;
+            correctOutput.interactable     = false;
         }
 
         if (b == timeoutButton) {
-            noCompileButton.interactable = interaction;
-            crashButton.interactable = interaction;
+            wrongReturnButton.interactable = interaction;
+            noCompileButton.interactable   = interaction;
+            crashButton.interactable       = interaction;
+
+            givenInput.interactable        = !interaction;
+            expectedOutput.interactable    = false;
+            correctOutput.interactable     = !interaction;
         }
 
         if (b == crashButton) {
-            noCompileButton.interactable = interaction;
-            timeoutButton.interactable = interaction;
+            wrongReturnButton.interactable = interaction;
+            noCompileButton.interactable   = interaction;
+            timeoutButton.interactable     = interaction;
+
+            givenInput.interactable        = !interaction;
+            expectedOutput.interactable    = false;
+            correctOutput.interactable     = !interaction;
         }
+
+        //Each input field should be cleared when it gets deactivated
+        givenInput.text     = givenInput.interactable     ? givenInput.text     : "";
+        expectedOutput.text = expectedOutput.interactable ? expectedOutput.text : "";
+        correctOutput.text  = correctOutput.interactable  ? correctOutput.text  : "";
 
         doubtButton.interactable = AllSetForDoubt();
     }
@@ -177,79 +220,34 @@ public class DoubtManager : NetworkBehaviour {
     public void NewText() { doubtButton.interactable = AllSetForDoubt(); }
 
     /// <summary>
-    /// External function to enforce the exclusivity between the 4 options and to notify that the user has entered a string.
-    /// The function is public void and value parametrized on purpose so that it can be called by an inputfield OnValueChanged.
-    /// </summary>
-    /// <param name="value"></param>
-    public void SelectExpected(string value) {
-        noCompileButton.interactable = (value.Length == 0);
-        timeoutButton.interactable = (value.Length == 0);
-        crashButton.interactable = (value.Length == 0);
-
-        NewText();
-    }
-
-    /// <summary>
     /// Utility function to check for all requirements of the doubt panel.
-    /// The user must enter 2 strings, one for input and one for expected "perfect" output.
     /// The user must select one of the 4 "expected" options.
-    /// Inputs and outputs must respect the function signature's typings.
+    /// Inputs and outputs, when required, must respect the function signature's typings.
     /// Expected output and expected "perfect" output must differ.
-    /// The doubt cannot be exaclty the same as a previously created doubt on the same target.
     /// </summary>
     /// <returns>true if the requirements are all met, false otherwise.</returns>
     public bool AllSetForDoubt() {
 
-        if (givenInput.text.Length == 0) { return false; }
-        //The inputs should respect all typings and length
-        if (!CorrectInputSequence(givenInput.text.Trim(), EM.argumentsType, EM.argumentsLimits)) { return false; }
+        //The inputs, when required, must respect the arguments signature
+        if (givenInput.interactable) {
+            if (givenInput.text.Length == 0 || !CorrectInputSequence(givenInput.text.Trim(), EM.argumentsType, EM.argumentsLimits)) { return false; }
+        }
 
-        if (correctOutput.text.Length == 0) { return false; }
-        //The correct output should respect the typing of the function
-        if (!CorrectInputSequence(correctOutput.text.Trim(), EM.functionType)) { return false; }
+        //The outputs, when required, must respect the function signature
+        if (correctOutput.interactable) {
+            if (correctOutput.text.Length == 0 || !CorrectInputSequence(correctOutput.text.Trim(), EM.functionType)) { return false; }
+        }
 
-        //When present, the expected output should respect the typing of the function
-        if (expectedOutput.text.Length > 0 && !CorrectInputSequence(expectedOutput.text, EM.functionType)) { return false; }
+        //The outputs, when required, must respect the function signature
+        if (expectedOutput.interactable) {
+            if (expectedOutput.text.Length == 0 || !CorrectInputSequence(expectedOutput.text.Trim(), EM.functionType)) { return false; }
+        }
 
         //It is impossible to think the user made a mistake and then propose that the correct solution outputs the same
-        if (correctOutput.text.Trim() == expectedOutput.text.Trim()) { return false; }
+        if (correctOutput.interactable && expectedOutput.interactable && correctOutput.text.Trim() == expectedOutput.text.Trim()) { return false; }
 
-        Button atLeastOneOn = null;
-        bool atLeastOneOff = false;
-        bool differentDoubt = true;
-
-        if (noCompileButton.interactable) {
-            atLeastOneOn = noCompileButton;
-        } else {
-            atLeastOneOff = true;
-        }
-
-        if (timeoutButton.interactable) {
-            atLeastOneOn = timeoutButton;
-        } else {
-            atLeastOneOff = true;
-        }
-
-        if (crashButton.interactable) {
-            atLeastOneOn = crashButton;
-        } else {
-            atLeastOneOff = true;
-        }
-
-        //Checks if the current inserted doubt is exactly the same to a previously created doubt
-        int idx = FindDoubtTargeting(targetId);
-        if (idx >= 0) {
-            if (doubtList[0][idx].input.ToString() == givenInput.text &&
-                doubtList[0][idx].output.ToString() == correctOutput.text && (
-                (doubtList[0][idx].expected.ToString() == expectedOutput.text && !string.IsNullOrEmpty(expectedOutput.text) && atLeastOneOn == null) ||
-                (doubtList[0][idx].doubtType == DOUBTTYPE.NoCompilation && atLeastOneOn == noCompileButton) ||
-                (doubtList[0][idx].doubtType == DOUBTTYPE.Timeout && atLeastOneOn == timeoutButton) ||
-                (doubtList[0][idx].doubtType == DOUBTTYPE.Crash && atLeastOneOn == crashButton))) {
-                differentDoubt = false;
-            }
-        }
-
-        return ((atLeastOneOn != null || expectedOutput.text.Length > 0) && atLeastOneOff && differentDoubt);
+        //Only one of the 4 "expected" options' buttons can be selected
+        return !(wrongReturnButton.interactable && noCompileButton.interactable && timeoutButton.interactable && crashButton.interactable);
     }
 
     /// <summary>
@@ -314,6 +312,7 @@ public class DoubtManager : NetworkBehaviour {
         /*
 		TEST_CASE("clientId", "[user]"){
 			CHECK(fun(TIMEOUT, givenInput.text) != correctOutput.text);
+            SUCCEED(clientId);
 			CHECK(fun(TIMEOUT, givenInput.text) == expectedOutput.text);
 			CHECK_THROWS_WITH(fun(TIMEOUT, givenInput.text), "Timeout");
             CHECK_THROWS_WITH(fun(TIMEOUT, givenInput.text), !Contains("Timeout"));
@@ -321,6 +320,7 @@ public class DoubtManager : NetworkBehaviour {
 		*/
         ulong clientId = NetworkManager.Singleton.LocalClientId;
         string userClientDoubt = "";
+        string userServerDoubt = "";
 
         /*RESTRICTIONS: 
 			the user inserted strings cannot be longer than 20 bytes
@@ -331,13 +331,23 @@ public class DoubtManager : NetworkBehaviour {
         expectedOutput.text = expectedOutput.text.Trim();
         correctOutput.text = correctOutput.text.Trim();
 
-        //Doubt on no compilation
+        //Doubt on no compilation, leaves no trace on the server solution
         if (noCompileButton.interactable) {
-            userClientDoubt += "TEST_CASE(\"" + clientId;                       //12-13  bytes
-            userClientDoubt += "\", \"[user]\"){\nCHECK(" + EM.functionName;    //21-40  bytes
-            userClientDoubt += "(TIMEOUT, " + givenInput.text;                  //11-30  bytes
-            userClientDoubt += ") != " + correctOutput.text + ");\n};\n\n";     //13-32  bytes
-        }                                                                       //57-115 total
+            /*userClientDoubt += "TEST_CASE(\"" + clientId;                 
+            userClientDoubt += "\", \"[user]\"){\nCHECK(" + EM.functionName;
+            userClientDoubt += "(TIMEOUT, " + givenInput.text;             
+            userClientDoubt += ") != " + correctOutput.text + ");\n};\n\n";
+            */
+            userClientDoubt += "TEST_CASE(\"" + clientId;
+            userClientDoubt += "\", \"[user]\"){\nSUCCEED(" + clientId + ");\n};\n\n";
+        } else {
+            //Server doubt, always on a value
+            userServerDoubt += "TEST_CASE(\"" + clientId + "->" + targetId;         //15-17  bytes
+            userServerDoubt += "\", \"[user]\"){\nCHECK(" + EM.functionName;        //21-40  bytes
+            userServerDoubt += "(TIMEOUT, " + givenInput.text;                      //11-30  bytes
+            userServerDoubt += ") == " + correctOutput.text + ");\n};\n\n";         //13-32  bytes
+                                                                                    //60-119 total
+        }
 
         //Doubt on a crash
         if (crashButton.interactable) {
@@ -361,21 +371,14 @@ public class DoubtManager : NetworkBehaviour {
             userClientDoubt += ") == " + expectedOutput.text + ");\n};\n\n";    //13-32  bytes
         }                                                                       //57-115 total
 
-        //Server doubt, always on a value
-        string userServerDoubt = "";
-        userServerDoubt += "TEST_CASE(\"" + clientId + "->" + targetId;         //15-17  bytes
-        userServerDoubt += "\", \"[user]\"){\nCHECK(" + EM.functionName;        //21-40  bytes
-        userServerDoubt += "(TIMEOUT, " + givenInput.text;                      //11-30  bytes
-        userServerDoubt += ") == " + correctOutput.text + ");\n};\n\n";         //13-32  bytes
-                                                                                //60-119 total
+        
 
-        DOUBTTYPE doubtType = DecideDoubtType(noCompileButton.interactable, timeoutButton.interactable, crashButton.interactable);
+        DOUBTTYPE doubtType = DecideDoubtType(wrongReturnButton.interactable, noCompileButton.interactable, timeoutButton.interactable, crashButton.interactable);
         doubt doubtData = new doubt(clientId, targetId, givenInput.text, correctOutput.text, expectedOutput.text,
                                     doubtType, userClientDoubt, userServerDoubt);
 
         UpdateIfAlreadyDoubted(doubtData);
 
-        doubtButton.interactable = false;
         removeButton.interactable = true;
     }
 
@@ -488,21 +491,24 @@ public class DoubtManager : NetworkBehaviour {
     /// Utility function to determine the <see cref="DOUBTTYPE"/> of a <see cref="doubt"/>.
     /// No more than one input should be true.
     /// </summary>
+    /// <param name="regular">true if the <see cref="doubt"/> expects a wrong return value, false otherwise.</param>
     /// <param name="noCompilation">true if the <see cref="doubt"/> expects no compilation, false otherwise.</param>
     /// <param name="timeout">true if the <see cref="doubt"/> expects timeout, false otherwise.</param>
     /// <param name="crash">true if the <see cref="doubt"/> expects a crash, false otherwise.</param>
     /// <returns>The correct <see cref="DOUBTTYPE"/> depending on the input booleans.</returns>
-    private DOUBTTYPE DecideDoubtType(bool noCompilation, bool timeout, bool crash) {
-        int val = (noCompilation ? 1 : 0) + (timeout ? 1 : 0) + (crash ? 1 : 0);
-        if (val > 1) {
-            Debug.LogError("Error, trying to create a doubt that is expecting a combination of: no compilation, timeout and crash, and this is not allowed.");
+    private DOUBTTYPE DecideDoubtType(bool regular, bool noCompilation, bool timeout, bool crash) {
+        int val = (regular ? 1 : 0) + (noCompilation ? 1 : 0) + (timeout ? 1 : 0) + (crash ? 1 : 0);
+        if (val != 1) {
+            Debug.LogError("Error, trying to create a doubt of a non allowed type.");
             return DOUBTTYPE.Regular;
         }
 
+        if (regular) { return DOUBTTYPE.Regular; }
         if (noCompilation) { return DOUBTTYPE.NoCompilation; }
         if (timeout) { return DOUBTTYPE.Timeout; }
         if (crash) { return DOUBTTYPE.Crash; }
 
+        //Failsafe
         return DOUBTTYPE.Regular;
     }
 
@@ -573,7 +579,7 @@ public class DoubtManager : NetworkBehaviour {
     }
 
     /// <summary>
-    /// Utility function to retrieve the value returned by an execution for <see cref="doubts"/> expecting a wrong value.
+    /// Utility function to retrieve the value returned by an execution for <see cref="doubt"/>s expecting a wrong value.
     /// </summary>
     /// <param name="testTail">The very final part of a test line.</param>
     /// <param name="currentLineParse"><see cref="testLineContents"/> returned by <see cref="TestLineParse(string)"/>.</param>
@@ -583,7 +589,7 @@ public class DoubtManager : NetworkBehaviour {
 
         string[] smallerParts;
 
-        if (testTail.IndexOf(" != ") == -1) {
+        //if (testTail.IndexOf(" != ") == -1) {
             smallerParts = testTail.Split(new[] { " == " }, StringSplitOptions.RemoveEmptyEntries);
 
             //the -1 from the length is there to remove a ghost char at the end of the line
@@ -591,14 +597,14 @@ public class DoubtManager : NetworkBehaviour {
                 currentLineParse.expected += smallerParts[2][j];
             }
 
-        } else {
-            smallerParts = testTail.Split(new[] { " != " }, StringSplitOptions.RemoveEmptyEntries);
+        //} else {
+        //    smallerParts = testTail.Split(new[] { " != " }, StringSplitOptions.RemoveEmptyEntries);
 
             //the -1 from the length is there to remove a ghost char at the end of the line
-            for (int j = 0; j < smallerParts[2].Length - 1; j++) {
-                currentLineParse.correct += smallerParts[2][j];
-            }
-        }
+        //    for (int j = 0; j < smallerParts[2].Length - 1; j++) {
+        //        currentLineParse.correct += smallerParts[2][j];
+        //    }
+        //}
 
         for (int j = smallerParts[1].IndexOf(":") + 2; j < smallerParts[1].Length; j++) {
             returned += smallerParts[1][j];
@@ -635,6 +641,8 @@ public class DoubtManager : NetworkBehaviour {
             bool correctTarget = currentDoubtList[i].targetId == DataManager.leaderboard[lobbyIdx][idx].owner;
 
             if (correctTarget) {
+                int doubterIdx = DataManager.GetClientRank(lobbyIdx, currentDoubtList[i].clientId, false);
+
                 //Save that the user solution did not compile
                 if (string.IsNullOrEmpty(userResults[lobbyIdx][i])) {
                     switch (fatalType) {
@@ -650,10 +658,13 @@ public class DoubtManager : NetworkBehaviour {
                     }
                 }
 
-                int doubterIdx = DataManager.GetClientRank(lobbyIdx, currentDoubtList[i].clientId, false);
+
+
+                if (CheckStatusLevel(currentDoubtList[i].currentStatus, 0)) {
+                    currentDoubtList[i].ProgressStatus(true);
+                }
 
                 if (CheckStatusLevel(currentDoubtList[i].currentStatus, 1)) {
-
                     if (currentDoubtList[i].doubtType == fatalType) {
                         pointDeltas[lobbyIdx][doubterIdx] += AssignPoints("correctDoubt");
                         currentDoubtList[i].ProgressStatus(true);
@@ -734,6 +745,20 @@ public class DoubtManager : NetworkBehaviour {
         string[] arr = testResults.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
         for (int i = 0; i < arr.Length - 2; i++) {
+
+            string successfulCompilation = DataManager.ExtractFromStringToChar(arr[i], "passed: with 1 message: '", '\'');
+            if (!string.IsNullOrEmpty(successfulCompilation)) {
+                int doubtIdx = DataManager.GetClientRank(lobbyIdx, ushort.Parse(successfulCompilation), false);
+
+                lobbyPointDeltas[solutionIdx] += AssignPoints("wrongDoubt");
+
+                //Because there is no equivalent doubt in the server solution an additional status progression is needed
+                lobbyDoubtList[doubtIdx].ProgressStatus(false);
+                lobbyDoubtList[doubtIdx].ProgressStatus(false);
+                lobbyDoubtList[doubtIdx].ProgressStatus(true);
+                continue;
+            }
+
             if (arr[i].IndexOf("fatal error condition") >= 0) {
                 //The doubt doesn't matter, the program crashed
                 FatalExecution(lobbyIdx, solutionIdx, DOUBTTYPE.Crash);
@@ -844,11 +869,11 @@ public class DoubtManager : NetworkBehaviour {
                 //Save the user result
                 lobbyUserResults[doubtIdx].AssignIfEmpty(returned);
 
-                if (parts[1].IndexOf(" != ") == -1 && passed) {
+                //if (parts[1].IndexOf(" != ") == -1 && passed) {
+                if (passed) {
                     lobbyPointDeltas[clientIdx] += AssignPoints("correctDoubt");
                     lobbyDoubtList[doubtIdx].ProgressStatus(true);
                 } else {
-                    //It is always wrong to bet on a compilation and obtain a result
                     lobbyPointDeltas[clientIdx] += AssignPoints("wrongDoubt");
                     lobbyDoubtList[doubtIdx].ProgressStatus(false);
                 }
@@ -873,7 +898,7 @@ public class DoubtManager : NetworkBehaviour {
 
     /// <summary>
     /// Utility function to find the first spot in the <see cref="doubtList"/> that is consirdered "free".
-    /// A "free" spot is currently represented by havin the clientId and targetId be the same. 
+    /// A "free" spot is currently represented by having the clientId and targetId be the same. 
     /// </summary>
     /// <param name="lobbyIdx">The index of the target lobby.</param>
     /// <returns>The index of the first empty spot in the <see cref="doubtList"/>, -1 is none were found.</returns>
@@ -911,7 +936,6 @@ public class DoubtManager : NetworkBehaviour {
     /// <param name="contents">An initially parsed test result line.</param>
     /// <returns>Tuple containing the index of the found <see cref="doubt"/> 
     /// and the position of the doubter on the leaderboard, (-1,-1) if it is not found.</returns>
-    //public (int, int) FindRelevantDoubt(int lobbyIdx, int statusLevel, ulong targetId, string input, string expected, string correct) {
     public (int, int) FindRelevantDoubt(int lobbyIdx, int statusLevel, ulong targetId, testLineContents contents) {
         if (string.IsNullOrEmpty(contents.input)) { return (-1, -1); }
         if (string.IsNullOrEmpty(contents.expected) && string.IsNullOrEmpty(contents.correct)) {Debug.LogError("Error, FindRelevantDoubt is being used incorrectly, use the overload with booleans instead.");}
@@ -922,7 +946,6 @@ public class DoubtManager : NetworkBehaviour {
             bool correctInput =  (doubtList[lobbyIdx][i].input.ToString() == contents.input);
             bool correctTarget = (doubtList[lobbyIdx][i].targetId == targetId || targetId == 0);
 
-            //!!!
             if (correctInput && correctTarget) {
 
                 //There is no correct part of the doubt, it means that we are checking for a wrong doubt
@@ -938,7 +961,7 @@ public class DoubtManager : NetworkBehaviour {
 
         }
         //Failsafe
-        Debug.LogError("Error, Could not find a doubt tageting: "+ targetId + "  with input: " + contents.input + "\nexpecting a WRONG output: " + contents.expected + "\nand expecting the correct server input to be: " + contents.correct);
+        Debug.LogError("Error, Could not find a doubt targeting: "+ targetId + "  with input: " + contents.input + "\nexpecting a WRONG output: " + contents.expected + "\nand expecting the correct server output to be: " + contents.correct);
         return (-1, -1);
     }
 
@@ -1016,8 +1039,9 @@ public class DoubtManager : NetworkBehaviour {
             if (idx != -1) { doubtList[lobbyIdx][idx] = singleDoubt; }
         }
 
-        
-        readyListText[lobbyIdx].SetText(doneCounter + "/" + matrixSize[lobbyIdx]);
+        ((IntVariable)readyListText[lobbyIdx].StringReference["readyClients"]).Value = doneCounter;
+        readyListText[lobbyIdx].RefreshString();
+
         CheckAllAndStartExecution();
     }
 

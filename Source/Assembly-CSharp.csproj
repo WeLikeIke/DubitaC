@@ -56,7 +56,14 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\SelfContained\SliderWithValueOnKnob.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\ChangePlayerStats.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\ChangePlayerName.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\ItemGender.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\WeaponDamageGroup.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\SetupScene.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\SetLocalVariable.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\CurrentTime.cs" />
+    <Compile Include="Assets\Samples\Localization\1.1.1\Smart Strings - Persistent Variables\Scripts\RandomPlayerStats.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -65,6 +72,7 @@
     <None Include="Assets\Resources\CodeQuestions\sumOf2Bits.txt" />
     <None Include="Assets\Catch2Requirements\catch_wrapper.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\Resources\CodeQuestions\fibonacci.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Resources\CodeQuestions\helloWorld.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -81,6 +89,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\CodeQuestions\chainingConditions.txt" />
     <None Include="Assets\Resources\CodeQuestions\triangleArea.txt" />
+    <None Include="Assets\Resources\CodeQuestions\structTraversal.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Resources\CodeQuestions\slopeBetween2Points.txt" />
     <None Include="Assets\Resources\CodeQuestions\limitChecking.txt" />
@@ -334,6 +343,9 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.10.1\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Users\chio9\Desktop\Unity\2020.3.15f2\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -728,15 +740,35 @@
     <Reference Include="Unity.Collections">
       <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Localization.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.CacheServer">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.CacheServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Localization">
+      <HintPath>Library\ScriptAssemblies\Unity.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Invokables.csproj">
       <Project>{DE1A8E29-05C6-6387-E4E4-BEB67705F6C2}</Project>
       <Name>Invokables</Name>
-    </ProjectReference>
-    <ProjectReference Include="TopLevelDependencies.csproj">
-      <Project>{D05D6E3E-4239-C8FB-3C3B-F1D09E505B45}</Project>
-      <Name>TopLevelDependencies</Name>
     </ProjectReference>
     <ProjectReference Include="Gameplay.csproj">
       <Project>{7ADE4406-C833-9D44-1917-5164BD209277}</Project>
@@ -770,6 +802,10 @@
       <Project>{9E2E98E7-3A0A-046D-731B-74B118ECD32E}</Project>
       <Name>Statics</Name>
     </ProjectReference>
+    <ProjectReference Include="SelfContained.csproj">
+      <Project>{6B406EF8-D802-DDB4-49B4-1F0717EC9D0B}</Project>
+      <Name>SelfContained</Name>
+    </ProjectReference>
     <ProjectReference Include="AutomaticDisplay.csproj">
       <Project>{98520BE9-D6B7-44A5-F730-353A8680FE08}</Project>
       <Name>AutomaticDisplay</Name>
@@ -782,6 +818,10 @@
       <Project>{1DCDF931-5195-7A92-1801-65B523450E58}</Project>
       <Name>Lobbies</Name>
     </ProjectReference>
+    <ProjectReference Include="NetcodeRequired.csproj">
+      <Project>{1F150939-8C05-95FD-6797-677FBF5F26A2}</Project>
+      <Name>NetcodeRequired</Name>
+    </ProjectReference>
     <ProjectReference Include="SceneMenagement.csproj">
       <Project>{779C0DCB-A57B-E7F5-D922-C030DFFF3705}</Project>
       <Name>SceneMenagement</Name>
@@ -789,10 +829,6 @@
     <ProjectReference Include="RoundManagement.csproj">
       <Project>{60E13F97-9732-0FFD-BF14-A684DE2FC9C9}</Project>
       <Name>RoundManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="NetcodeRequired.csproj">
-      <Project>{1F150939-8C05-95FD-6797-677FBF5F26A2}</Project>
-      <Name>NetcodeRequired</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

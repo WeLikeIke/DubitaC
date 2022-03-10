@@ -2,6 +2,9 @@ using System;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.UI;
 
 /// <summary>
@@ -16,15 +19,15 @@ public class TextManager : MonoBehaviour {
 
     #region CodeQuestionVar
     public string codeQuestionLabel;
-    public LocalizableText codeQuestionHintText;
-    public LocalizableText codeQuestionGoalText;
+    public LocalizeStringEvent codeQuestionHintText;
+    public LocalizeStringEvent codeQuestionGoalText;
 
     #endregion
 
     #region HintsVar
     public GameObject hintsPanel;
     public GameObject hintBoxPrefab;
-    public TextMeshProUGUI startingPrize;
+    public LocalizeStringEvent startingPrize;
     public Button buyHintButton;
     private string[] hints;
     private int nextHint = 0;
@@ -33,9 +36,7 @@ public class TextManager : MonoBehaviour {
 
     #region LocalizationVar
     public int languageIdx = 0;
-    public Sprite[] languageSprites;
-    public Image languageFlag;
-    public LocalizableText[] mainMenuVisibleText;
+    public LocalizeStringEvent feedbackText;
 
     #endregion
 
@@ -45,27 +46,37 @@ public class TextManager : MonoBehaviour {
     public RawImage tutorialImage;
 
     private readonly string[] tutorialLabels = new string[6] { "_tutorial_0",  "_tutorial_1", "_tutorial_2", "_tutorial_3", "_tutorial_4", "_tutorial_5" };
-    public LocalizableText tutorialText;
+    public LocalizeStringEvent tutorialText;
 
     #endregion
 
-    public void Awake() { DataManager.LoadDict(); }
 
     public void Start() {
-        if (hintsPanel != null) { hintsPanel.SetActive(false); }
+        //Make sure to have the correct locale loaded for the localization
+        languageIdx = DataManager.currentLanguage;
+        UpdateLanguage();
 
         if (selectCppsPath != null) {
             Directory.CreateDirectory(DataManager.currentPath);
             selectCppsPath.text = DataManager.currentPath;
         }
 
-        if (languageFlag != null) {
-            languageIdx = GetLanguageIdx();
-            UpdateLanguage();
+        if (hintsPanel != null) { hintsPanel.SetActive(false); }
+
+        if (tutorialImage != null) {
+            tutorialImage.texture = tutorialTextures[0];
         }
 
-        if(tutorialImage != null) {
-            tutorialImage.texture = tutorialTextures[0];
+        if (feedbackText != null && !string.IsNullOrEmpty(DataManager.databaseFeedback)) {
+            feedbackText.StringReference.SetReference("Strings",DataManager.databaseFeedback);
+        }
+
+        if(codeQuestionGoalText != null) {
+            codeQuestionGoalText.StringReference.SetReference("Strings", DataManager.currentCodeQuestion.description);
+        }
+
+        if (codeQuestionHintText != null) {
+            codeQuestionHintText.StringReference.SetReference("Strings", DataManager.currentCodeQuestion.description);
         }
 
     }
@@ -86,54 +97,26 @@ public class TextManager : MonoBehaviour {
     /// Utility function to update the tutorial <see cref="RawImage"/> to the correct one following <see cref="tutorialIdx"/>.
     /// </summary>
     private void UpdateTutorial() {
+        //Update texture
         tutorialImage.texture = tutorialTextures[tutorialIdx];
-        tutorialText.ChangeLabel(tutorialLabels[tutorialIdx]);
+
+        //Update description text
+        tutorialText.StringReference.SetReference("Strings", tutorialLabels[tutorialIdx]);
     }
 
     /// <summary>
-    /// Reads the <see cref="DataManager.currentLanguage"/> and returns its index.
-    /// </summary>
-    /// <returns>Returns the index in the <see cref="languageSprites"/> array of the current language</returns>
-    public int GetLanguageIdx() {
-        string languageName = DataManager.currentLanguage;
-
-        for(int i = 0; i < languageSprites.Length; i++) {
-            if (languageSprites[i].name.Split('_')[0] == languageName) {
-                return i;
-            }
-        }
-
-        //Should never happen, since we get the language from the DataManager
-        Debug.LogError("Error, unable to retieve the Sprite corresponding to the language: " + languageName);
-        return -1;
-    }
-
-    /// <summary>
-    /// Executes all necessary steps for a correct language selection:
-    /// Updates the flag <see cref="Sprite"/>, Updates the language in the static class <see cref="DataManager"/>,
-    /// Triggers a reloading of the new dictionary and forces already spawned <see cref="LocalizableText"/> to relocalize.
+    /// Loads the correct locale for the localization using <see cref="languageIdx"/>;
     /// </summary>
     public void UpdateLanguage() {
-        //Show the correct flag 
-        languageFlag.sprite = languageSprites[languageIdx];
-
-        //Make sure that the static class knows then new preference
-        DataManager.currentLanguage = languageSprites[languageIdx].name.Split('_')[0];
-
-        //Trigger the loading of the new dictionary
-        DataManager.LoadDict();
-        
-        //Force the localization on all LocalizableText that already run their Start method
-        foreach (LocalizableText t in mainMenuVisibleText) {
-            t.LocalizeSelf();
-        }
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageIdx];
     }
 
     /// <summary>
     /// Changes the current language by increasing <see cref="languageIdx"/> and then calling <see cref="UpdateLanguage"/>
     /// </summary>
     public void ChangeLanguage() {
-        languageIdx = (languageIdx + 1) % languageSprites.Length;
+        languageIdx = (languageIdx + 1) % LocalizationSettings.AvailableLocales.Locales.Count;
+        DataManager.currentLanguage = languageIdx;
         UpdateLanguage();
     }
 
@@ -186,7 +169,9 @@ public class TextManager : MonoBehaviour {
         }
 
         DataManager.UpdateClientPoints();
-        startingPrize.SetText(DataManager.myData.points.ToString());
+
+        ((UShortVariable)startingPrize.StringReference["points"]).Value = DataManager.myData.points;
+        startingPrize.RefreshString();
     }
 
 }

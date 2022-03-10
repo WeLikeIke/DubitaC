@@ -77,3 +77,19 @@ Since DubitaC is completely Open Source from version 1.2, the repository contain
 Feel free to contribute!
 
 
+to add a localization
+go to project settings / Localization
+click on locale generator and from the panel that appears, select the new language
+click on generate locale and select the folder Assets/Resources/Localization/Locales
+create a country flag sprite
+add the sprite to Assets/Resources/Localization
+from the editor open Window/Asset Management/Localization Scenes Controls
+tick track changes
+select active locale as the just generated locale
+click on MainMenu/Main Camera/Canvas/Background/TitleScreenPanel/LocalizationButton
+On the Image component change the Source Image with the country flag sprite you created
+untick track changes
+create a csv file containing the localization with the header in format: Key,nameOfTheLocale
+from editor open Window/Asset Management/Localization Tables
+click on the triple vertical dots in the top right, Import/CSV File
+select the localization csv

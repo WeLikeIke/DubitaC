@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 /// <summary>
 /// Prefab class managing the details of a lobby and exposing the functions to interact with it.
@@ -10,8 +10,13 @@ using UnityEngine;
 public class LobbyUI : MonoBehaviour {
     private const int maxCapacityOfLobby = 6;
 
-    public TextMeshProUGUI lobbyNumber;
-    public TextMeshProUGUI usersNumber;
+    //Localization variables
+    public int lobbyNumber;
+    public int lobbyCount = 0;
+    public int lobbyCapacity = maxCapacityOfLobby;
+    public LocalizeStringEvent lobbyInfoText;
+
+
     private RectTransform usersLobby;
 
     //It is needed that freeSeats be initialized with zeros, but that is the default value of a ulong so no further action is required
@@ -29,19 +34,15 @@ public class LobbyUI : MonoBehaviour {
         if (seatId != -1) {
             freeSeats[seatId] = clientId;
         } else {
-            Debug.LogError("Error, Trying to add client " + clientId + " into a full lobby (lobby " + lobbyNumber.text + ")");
+            Debug.LogError("Error, Trying to add client " + clientId + " into a full lobby (lobby " + lobbyNumber + ")");
         }
 
         //Parent the client object to the user area and normalized its scale
         playerTransform.SetParent(usersLobby);
         playerTransform.localScale = Vector3.one;
 
-        //Increase the number of clients in the lobby by one
-        if (int.TryParse(usersNumber.text, out int val)) {
-            usersNumber.SetText((val + 1).ToString());
-        } else {
-            Debug.LogError("Error, could not parse as a number " + usersNumber.text + " of lobby " + lobbyNumber.text + ", did you edit it manually?");
-        }
+        lobbyCount += 1;
+        lobbyInfoText.RefreshString();
     }
 
     /// <summary>
@@ -57,15 +58,11 @@ public class LobbyUI : MonoBehaviour {
         if (seatId != -1) {
             freeSeats[seatId] = 0;
         } else {
-            Debug.LogError("Error, Trying to remove client " + clientId + " from lobby " + lobbyNumber.text + " but it could not be found.");
+            Debug.LogError("Error, Trying to remove client " + clientId + " from lobby " + lobbyNumber + " but it could not be found.");
         }
 
-        //Decrease the number of clients in the lobby by one
-        if (int.TryParse(usersNumber.text, out int val)) {
-            usersNumber.SetText((val - 1).ToString());
-        } else {
-            Debug.LogError("Error, could not parse as a number " + usersNumber.text + " of lobby " + lobbyNumber.text + ", did you edit it manually?");
-        }
+        lobbyCount -= 1;
+        lobbyInfoText.RefreshString();
     }
 
     /// <summary>
@@ -88,8 +85,10 @@ public class LobbyUI : MonoBehaviour {
     /// </summary>
     /// <param name="n">Number of the lobby.</param>
     /// <param name="usersHolderPrefab">Prefab of the area where the player prefabs will be parented.</param>
-    public void Setup(int n, GameObject usersHolderPrefab) { 
-        lobbyNumber.SetText(n.ToString());
+    public void Setup(int n, GameObject usersHolderPrefab) {
+        lobbyNumber = n;
+        lobbyInfoText.RefreshString();
+
         SpawnUserArea(usersHolderPrefab);
     }
 

@@ -1,0 +1,755 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Strings_it
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: it
+  m_SharedData: {fileID: 11400000, guid: 2bd8424e499ac664187c1539b8322694, type: 2}
+  m_Metadata:
+    m_Items:
+    - id: 0
+  m_TableData:
+  - m_Id: 912167268382
+    m_Localized: Ti sei ricordato di considerare il valore iniziale di 'root'?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268381
+    m_Localized: E' possibile attraversare una lista di puntatori usando la stessa
+      struttura di dati, creando una variabile di tipo 'Node*' e ponendola uguale
+      a 'root' potrai accedere a 'left' della nuova variabile e ottenere lo stesso
+      puntatore di root->left.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268380
+    m_Localized: "Lavorare con i puntatori pu\xF2 confondere, accedere al valore
+      di un 'Node*' con node->value ritorner\xE0 un int, ma node->left ritorner\xE0
+      un 'Node*' o 'nullptr'."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268379
+    m_Localized: "Dato in input il numero di svolte a sinistra, ritorna la somma
+      dei valori trovati, dopo aver eseguito tutte le svolte a sinistra, svolta a
+      destra finch\xE8 puoi.<br>Hai a disposizione una variabile di tipo 'Node*'
+      chiamata 'root', contiene 3 puntatori, uno chiamato 'left' che rappresenta
+      una svolta a sinistra, uno chiamato 'right' che rappresenta una svolta a destra
+      e uno chiamato 'value' che rappresenta il valore trovato, 'left' e 'right'
+      puntano a un altro 'Node*', se esiste."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268378
+    m_Localized: Ti sei ricordato dei casi base? Senza una condizione per fermarsi,
+      il tuo codice verrebbe eseguito all'infinito, pensa a quali numeri nella sequenza
+      non dipendono dai 2 numeri precedenti.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268377
+    m_Localized: "Il modo pi\xF9 semplice per calcolare la sequenza di fibonacci
+      \xE8 la ricorsione, ma ricordati di cambiare gli argomenti della funzione ogni
+      volta che viene chiamata."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268376
+    m_Localized: "Dato in input un int, ritorna il numero nella sequenza di fibonacci
+      con l'indice corrispondente al valoredell'int.<br>La sequenza di fibonacci
+      inizia all'indice 0 con: 0, 1, 1, 2, 3... dove ogni numero nella sequenza \xE8
+      uguale alla somma dei 2 numeri precedenti."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268375
+    m_Localized: "Rircoda che l'operazione '+' pu\xF2 essere utilizzata per concatenare
+      stringhe con altre stringhe e stringhe con caratteri."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268374
+    m_Localized: Dato in input un int, ritorna la stringa 'Hello world' seguita da
+      tanti '!' quanto il valore dell'int.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268373
+    m_Localized: Ti sei ricordato che il float ausiliario potrebbe essere tra 0 e
+      1? In quel caso, moltiplicazione e divisione si invertirebbero!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268372
+    m_Localized: 'Ricorda che la libreria ''math.h'' offre 3 funzioni per l''arrotondamento:
+      ''ceil'', ''round'' e ''floor'', ma arrotondano tutte e 3 in modo diverso,
+      per questa funzione avrai bisogno solamente di 2 di queste.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268371
+    m_Localized: "Dati in input, un int principale, 2 int che rappresentano limite
+      inferiore e limite superiore e un float ausiliario, ritorna se l'int principale
+      \xE8 contenuto tra i 2 limiti.<br>L'int principale pu\xF2 essere modificato
+      una sola volta tramite una moltiplicazione o divisione da parte del float ausiliario.<br>In
+      pi\xF9, dopo aver usato il float ausiliario devi arrotondare il risultato verso
+      l'intervallo tra i limiti."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268370
+    m_Localized: "Che succede, invece, quando entrambi i booleani sono false, entrambi
+      rappresentano uno 0 e sommandoli otterresti 0, \xE8 possibile salvare il valore
+      0 in 0 bit?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268369
+    m_Localized: "Pensa a cosa succede quando entrambi i booleani sono true, entrambi
+      rappresentano un 1 e sommandoli otterresti un 2, \xE8 possibile salvare il
+      valore 2 in un singolo bit?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268368
+    m_Localized: "Dati in input il numero di bit che puoi utilizzare come memoria
+      e il valore di 2 bit booleani, ritorna se la somma dei 2 pu\xF2 essere salvata
+      nella memoria a tua disposizione."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268367
+    m_Localized: "Non ha senso avere pi\xF9 di un boolean con l'operazione 'not',
+      l'operazione di negazione \xE8 unaria e perci\xF2 non pu\xF2 essere usata per
+      concatenare nulla."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268366
+    m_Localized: "Pensa a quale sia il requisito minimo per ritornare true con un
+      paio di booleani, true and false \xE8 false ma true or false \xE8 true."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268365
+    m_Localized: Dati in input il numero di booleani falsi e il numero di booleani
+      veri che devono essere concatenati e l'operazione per concatenarli, ritorna
+      il risultato finale dell'evaluazione.<br>Le uniche operazioni valide sono 'and',
+      'or' e 'not', ritorna false quando la concatenazione di booleani non ha senso.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268364
+    m_Localized: Come in matematica, base e altezza sono 2 valori che possono essere
+      utilizzatin in qualsiasi formula.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268363
+    m_Localized: Dati in input base e altezza di un triangolo, ritorna l'area del
+      triangolo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268362
+    m_Localized: Se non usi delle variabli per salvare dei risultati parziali, avrai
+      bisogno di utilizzare alcune parentesi dat che, omettendole, moltiplicazioni
+      e divisioni vengo sempre eseguite prima di addizioni e sottrazioni.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268361
+    m_Localized: Come in matematica, le coordinate sono dei numeri, hai solo bisogno
+      di 3 operazioni per trovare l'inclinazione della retta passante per 2 punti.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268360
+    m_Localized: Date in input le coordinate di 2 punti su un piano, ritorna il coefficente
+      della retta (inclinazione) che passa per i 2 punti.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268359
+    m_Localized: Output errato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268358
+    m_Localized: Dubbio Errato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268357
+    m_Localized: 'Dando in input:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268356
+    m_Localized: Sto aspettando che la presentazione dei dubbi finisca...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268355
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268354
+    m_Localized: Nome utente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268353
+    m_Localized: ha ritornato un valore sconosciuto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268352
+    m_Localized: "Classifica finale, congratulazioni la sessione \xE8 finita, guadagnerai
+      dei punti in base a come hai giocato,pi\xF9 punti hai, pi\xF9 avatar potrai
+      selezionare.<br>Rosso: Disconnetti dal server, Viola: Salva la tua soluzione
+      nel percorso che hai specificato nelle impostazioni, Blu: Salva la soluzione
+      del primo classificato nel percorso che hai specificato nelle impostazioni,
+      Verde: La classifica finale."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074144
+    m_Localized: "Presentazione, il gioco \xE8 finito, adesso il punteggion verr\xE0
+      calcolato mentre tutti guardano le soluzioni e i dubbi.<br>Rosso: Lista di
+      chi \xE8 stato dubitato, Viola: Lista di chi ha dubitato, Blu: Nomi utente
+      degli interessati, Azzurro: Dettagli del dubbio, Verde: Valori ritornati dalla
+      soluzione e dal server quando forniti dello stesso input, Giallo: Voto finale
+      del dubbio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074143
+    m_Localized: "Il pannello dei Dubbi, seleziona un input per il quale pensi che
+      la soluzione selezionata non ritorni il risultato corretto e riempi i campi
+      di conseguenza.<br>Rosso: Ritorna alla schermata precedente, Viola: Dopo aver
+      dubitato la soluzione di un giocatore, \xE8 possibile rimuovere il dubbio con
+      questo pulsante, Blu: L'input che pensi far\xE0 fallire la soluzione del giocatore
+      selezionato (NECESSARIO), Azzurro: Cosa pensi succeder\xE0 alla soluzion una
+      volta fornita del tuo input? Ritorner\xE0 un valore errato, non compiler\xE0
+      affatto, verr\xE0 interrotta perch\xE8 impiegava troppo a terminare or terminer\xE0
+      erroneament con un eccezione o peggio (NECESSARIO, ALMENO UNA), Verde: Qual'\xE8
+      l'output corretto una volta fornito il tuo input? Il dubbio \xE8 considerato
+      completamente corretto solo se sei in grado di rispondere anche a questo! (NECESSARIO),
+      Arancione: Conferma il dubbio con i valori sopra specificati (Puoi dubitare
+      ogni giocatore una sola volta, un nuovo dubbio sovrascriver\xE0 quello vecchio)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074142
+    m_Localized: 'Secondo round, clicca sugli avatar sulla sinistra per vedere le
+      soluzioni degli altri giocatori, se trovi degli errori premi ''Dubita'' per
+      aprire il pannello dei dubbi.<br> Rosso: Pulsanti per lo zoom delle soluzioni,
+      Viola: Apre il pannello dei dubbi, Blu: Lista dei giocatori (In ordine in base
+      al pulsante ''Pronto'' dello scorso round), Azzurro: Il cronometro mostra quanto
+      tempo ti rimane prima di dover abbandonare l''occasione di dubitare.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074141
+    m_Localized: "Primo round, scrivi nello spazio apposito la soluzione alla sfida
+      che ti \xE8 stata proposta.<br>Rosso: Crea un file cpp contenente la tua soluzione
+      nel percorso che hai indicato nelle impostazioni, Viola: Compila ed esegue
+      i test di base contro la tua soluzione, Blu: Apre il pannello dei suggerimenti
+      dove puoi comprare alcuni suggerimenti al costo di alcuni punti (Nel caso te
+      ne fossi dimenticato, qui puoi rileggere il testo della sfida), Verde: Apre
+      il registro dove tutte le comunicazioni riguardo la compilazione ed esecuzione
+      vengono archiviati, Giallo: Il cronometro ti mostra quanto tempo ti rimane
+      prima di essere obbligato ad inviare la tua soluzione, Arancione: Notifica
+      il server che hai finito di scrivere la soluzione (Se premi il pulsante prima
+      degli altri sarai pi\xF9 in alto nella classifica del primo round), Azzurro:
+      Pulsanti per lo zoom della soluzione."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074140
+    m_Localized: "Men\xF9 principale<br>Rosso: Esci dal gioco, Viola: Credenziali
+      d'accesso, gi\xE0 utilizzate o nuove, Blu: Passa da credenziali gi\xE0 utilizzate
+      a nuove e viceversa, Azzurro: Tenta la connessione con il server utilizzando
+      le credenziali inserite, Giallo: Inserisci l'indirizzo Ipv4 datoti da chi gestisce
+      il server (NECESSARIO), Verde: Apre questo tutorial, Arancione: Apre le impostazioni."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074139
+    m_Localized: 'Tempo rimasto:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074138
+    m_Localized: "Il gioco interromper\xE0 tutti i test che potrebbero trovarsi in
+      un ciclo infinito grazie a questa variabile. Occasionalmente, su computer molto
+      lenti, \xE8 possibile che un falso positivo interrompa un esecuzione legittima,
+      se succedesse, aumenta questa variabile, ma ricorda che, per un esecuzione
+      che non termina, un timeout grande significa sprecare del tempo che avresti
+      potuto impiegare per migliorare la tua soluzione."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074048
+    m_Localized: Seleziona il tuo avatar!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074049
+    m_Localized: Indietro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074050
+    m_Localized: Torna al menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074051
+    m_Localized: "Questo indirizzo Ip non \xE8 valido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074052
+    m_Localized: La password deve contenere tra 8 e i 20 caratteri, con NESSUNA virgola
+      o spazi.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074053
+    m_Localized: "Il server ha rifiutato la connessione, le credenziali potrebbero
+      essere errate o qualcuno con quel nome utente \xE8 gi\xE0 connesso al server.<br>E'
+      anche possibile che la connessione col server sia stata interrotta."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074054
+    m_Localized: Il nome utente deve contenere tra 1 e 20 caratteri con NESSUNA virgola
+      o spazi.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074055
+    m_Localized: Compra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074056
+    m_Localized: Pulisci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074057
+    m_Localized: Client
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074060
+    m_Localized: Dubbio Corretto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074061
+    m_Localized: Output corretto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074062
+    m_Localized: 'Risultato corretto: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074063
+    m_Localized: "Pi\xF9 punti hai, pi\xF9 avatar saranno disponibili!<br>L'avatar
+      che scegli verr\xE0 mostrato a tutti gli altri giocatori nella tua stanza!<br>Completare
+      una sessione ti ricompenser\xE0 con alcuni punti, ma se finisci sul podio ne
+      guadagnerai molti di pi\xF9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074064
+    m_Localized: Il gioco ti permette di creare i file .cpp della tua, o della migliore,
+      solutione. Scegli la cartella e clicca su esporta mentre stai giocando.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074065
+    m_Localized: Cartella dei Cpp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074066
+    m_Localized: Terminasse<br>erroneamente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074067
+    m_Localized: Crea un nuovo account
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074068
+    m_Localized: 'I giocatori devono connettersi a questo indirizzo Ip: <b>{IpManager.address}</b>'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 912163074069
+    m_Localized: Classifica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074070
+    m_Localized: 'In questo momento hai:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074071
+    m_Localized: Percorso predefinito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074072
+    m_Localized: Disconnettiti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074073
+    m_Localized: Dubita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074074
+    m_Localized: "\xC9 il momento di creare i tuoi dubbi!<br>Clicca sugli avatar
+      dei giocatori a sinistra per poter leggere le loro soluzioni e, se trovi qualche
+      errore, crea un dubbio premendo il pulsante in alto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074075
+    m_Localized: 'Dubbi ricevuti:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074076
+    m_Localized: si aspettava che la soluzione di
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074077
+    m_Localized: Esporta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074078
+    m_Localized: Esporta tutte le soluzioni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074079
+    m_Localized: Esporta la soluzione migliore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074080
+    m_Localized: Esporta la mia soluzione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074081
+    m_Localized: Obbiettivo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074082
+    m_Localized: Capito!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074083
+    m_Localized: Mezzo Dubbio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074084
+    m_Localized: Suggerimento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074085
+    m_Localized: Suggerimenti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074086
+    m_Localized: Come giocare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074087
+    m_Localized: 'Mi aspetto che la soluzione:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074088
+    m_Localized: Argomenti in input
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074089
+    m_Localized: 'una volta passato il seguente input: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074090
+    m_Localized: 'invece di ritornare:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074092
+    m_Localized: "La classifica finale dipender\xE0 dal risultato dei test finali,
+      tutto pu\xF2 ancora cambiare!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074093
+    m_Localized: Caricamento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074094
+    m_Localized: Stanza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074095
+    m_Localized: Clicca sulla bandiera per cambiare la lingua!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074096
+    m_Localized: Registro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074097
+    m_Localized: 'Questi sono gli avatar che potrai selezionare dalla prossima volta:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074098
+    m_Localized: Non compilasse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074099
+    m_Localized: Nessun Dubbio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074100
+    m_Localized: non compila
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074101
+    m_Localized: non ha dubitato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074102
+    m_Localized: Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074137
+    m_Localized: tempo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074136
+    m_Localized: andasse in Timeout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074135
+    m_Localized: 'In questa sessione:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074134
+    m_Localized: Test
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074133
+    m_Localized: Entrambi errati
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074132
+    m_Localized: 'Premio iniziale:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074131
+    m_Localized: Inizia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074130
+    m_Localized: 'Risultato della soluzione: '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074129
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074128
+    m_Localized: Impostazioni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074127
+    m_Localized: 'Numero di partecipanti: {numberOfClients}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 912163074126
+    m_Localized: Ogni sessione richiede un server e tra 2 e 24 giocatori.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074125
+    m_Localized: "Il riquadro verde contiene il tempo massimo che i giocatori avranno
+      a disposizione per risolvere la sfida.<br>Se non viene inserito nulla verr\xE0
+      utilizzato un valore predefinito."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074124
+    m_Localized: Impostazioni del server
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074123
+    m_Localized: Pannello di controllo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074122
+    m_Localized: Il riquadro blu contiene le possibili sfide che i giocatori possono
+      affrontare, clicca su una di esse per selezionarla.<br>Nello spazio bianco
+      puoi inserire qualsiasi combinazione di 'tag' per filtrare le possibili sfide.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074121
+    m_Localized: Il riquadro rosso contiene l'indirizzo Ipv4 del server.<br>E' molto
+      importante che tu lo condivida con i tuoi giocatori.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074120
+    m_Localized: Server
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074119
+    m_Localized: "Questo indirizzo Ip \xE8 valido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074118
+    m_Localized: Seleziona il tempo che avranno i giocatori per creare una soluzione.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074117
+    m_Localized: 'Scegli l''indirizzo Ip del server:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074116
+    m_Localized: Seleziona la sfida per questa sessione!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074115
+    m_Localized: Secondi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074114
+    m_Localized: Salva la tua soluzione per poterla rivedere in seguito!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074113
+    m_Localized: "Salva la soluzioe di chi \xE8 al primo posto per fare un confronto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074112
+    m_Localized: ritornasse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074111
+    m_Localized: Rimuovi il dubbio contro<br> questo giocatore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074110
+    m_Localized: 'Richiede '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074109
+    m_Localized: Giocatori Pronti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074108
+    m_Localized: Pronto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074107
+    m_Localized: Domanda risolta:<br><b>{solvedQuestion}</b>
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 912163074106
+    m_Localized: Avanzamento al prossimo turno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074105
+    m_Localized: Punti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074104
+    m_Localized: Giocatore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074103
+    m_Localized: Gioca
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51189125738496
+    m_Localized: Continua<br>come {currentBuild}
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 91413029580800
+    m_Localized: '{_currently_have} {AvatarManager.points} {_points}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 330488173031424
+    m_Localized: '{_lobby} {LobbyUI.lobbyNumber}   {LobbyUI.lobbyCount}/{LobbyUI.lobbyCapacity}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 333020895113216
+    m_Localized: '{_requires}<br>{AvatarUI.points}<br>{_points}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 506887420768256
+    m_Localized: '{_time_left}<br>{RoundTimer.displayTime}<br>{_seconds}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 513712492900352
+    m_Localized: '{_lobby} {lobbyNumber}  {readyClients}/{clientsInLobby}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 528586967085056
+    m_Localized: '{points} {_points}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 531473440960512
+    m_Localized: '{_hint} {HintBox.hintNumber}'
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 726055483076608
+    m_Localized: <b>{doubter}</b> si aspettava che la soluzione di <b>{target} {doubtType}
+      {possibleReturnValue}</b> invece di ritornare <b>{expectedReturnValue}</b>
+      dopo aver passato <b>{inputs}</b> come argomenti in input.<br><br>La soluzione
+      di <b>{target} {returnedType} {actualReturnValue}</b>.<br>Una corretta soluzione
+      ritornerebbe <b>{correctReturnValue}</b>.
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 738393854570496
+    m_Localized: <b>{doubter}</b> non ha dubitato la soluzione di <b>{target}</b>.
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 753994731876352
+    m_Localized: '{HintBox.hintBody}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437697
+    m_Localized: ha terminiato erroneamente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437698
+    m_Localized: non ha compilato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437700
+    m_Localized: ritorni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437701
+    m_Localized: ha ritornato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437702
+    m_Localized: "\xE8 andata in Timeout"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1500940710965248
+    m_Localized: 'Valore errato atteso:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1501550797647872
+    m_Localized: 'Al posto del valore corretto:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309826895872
+    m_Localized: Termini<br>erroneamente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559168
+    m_Localized: Non<br>compili
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559169
+    m_Localized: Vada in<br>Timeout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559170
+    m_Localized: Timeout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559171
+    m_Localized: Ritorni un<br>valore errato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1610011380281344
+    m_Localized: compila correttamente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1610011426418688
+    m_Localized: <b>{doubter}</b> si aspettava che la soluzione di <b>{target} non
+      compilasse</b>.<br><br>La soluzione di <b>{target} {returnedType}</b>.
+    m_Metadata:
+      m_Items:
+      - id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0af02761d400000000f0a7658e2e000000f027c12353000014f02761d400000000f0a70c4c93000000f027c6932c010000f02778e12e010000f0e7e0ebbf010000f0a7ec02cd010000f0a70238d3010000f0673ebfe0010000f0a74d5fe3010000f0276f48e401004ff02761d40000003bf02761d400000000f067b7909f020000f027f75794020000f027ff4bb80500

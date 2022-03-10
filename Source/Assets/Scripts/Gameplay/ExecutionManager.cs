@@ -85,7 +85,7 @@ public class ExecutionManager : MonoBehaviour {
     /// Utility function to obtain a solution after a possible main function substitution.
     /// </summary>
     /// <param name="suppliedSolution">String to use instead of the user notepad.</param>
-    /// <returns>The solution, either given or from the notepad, after a possible main function substitution.</returns>
+    /// <returns>The solution, either given from the notepad or after a possible main function substitution.</returns>
     public string GetUserSolution(string suppliedSolution) {
 
         //If no string is given, it will be taken from the user notepad
@@ -653,6 +653,7 @@ public class ExecutionManager : MonoBehaviour {
         Create(solution, filename);
 
         string result = await Compile(filename);
+
         if (!string.IsNullOrEmpty(result)) {
             UnityEngine.Debug.LogError("Error, compilation of the server solution failed, the codeQuestion file probably contains an error.");
             return null;
@@ -675,7 +676,15 @@ public class ExecutionManager : MonoBehaviour {
     /// <param name="notMine">true if the .cpp should be created from the best solution in the lobby, 
     /// false if the .cpp should be created from the solution of the current user.</param>
     public void Create(bool notMine) {
-        string readyCpp = DataManager.GetClientSolution(DataManager.myData.owner);
+
+        string readyCpp;
+
+        if (NM != null) {
+            readyCpp = GetUserSolution(null);
+        } else {
+            readyCpp = DataManager.GetClientSolution(DataManager.myData.owner);
+        }
+
         string owner = "my_";
 
         if (notMine) {

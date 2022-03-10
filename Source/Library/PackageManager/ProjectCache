@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637793755284269518
-    m_Hash: 93704681
+      ticks: 637824346730443328
+    m_Hash: 1048486056
   m_LockFileStatus:
     m_FilePath: C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637793755284518889
-    m_Hash: 2021618855
+      ticks: 637824346817734015
+    m_Hash: 3484375004
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -162,6 +162,143 @@ m_PackageAssets:
         url: 
         revision: 
         path: 
+    - packageId: com.unity.localization@1.2.1
+      testable: 0
+      isDirectDependency: 1
+      version: 1.2.1
+      source: 1
+      resolvedPath: C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\Library\PackageCache\com.unity.localization@1.2.1
+      assetPath: Packages/com.unity.localization
+      name: com.unity.localization
+      displayName: Localization
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: "Use the Localization package to easily configure localization
+        settings for your application.\n\nAdd support for multiple languages and
+        regional variants, including:\n\n\u2022 String localization: Set different
+        strings to display based on locale. Use the Smart Strings feature to add
+        logic to automatically replace specific strings, such as placeholders and
+        plurals.\n\u2022 Asset localization: Use a different asset (such as a texture,
+        model, or audio file) based on a locale.\n\u2022 Pseudo-localization: Test
+        how your project will adapt to different localizations at an early stage,
+        before adding your translations.\n\u2022 Import and export localization data
+        to XLIFF, CSV and Google Sheets.\n\nAdd localization to your projects using
+        the Localization package to help make your applications more accessible to
+        a wider audience."
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.2.1-preview
+        - 0.2.2-preview
+        - 0.2.3-preview
+        - 0.3.1-preview
+        - 0.3.2-preview
+        - 0.4.0-preview
+        - 0.5.0-preview
+        - 0.5.1-preview
+        - 0.6.0-preview
+        - 0.6.1-preview
+        - 0.7.1-preview
+        - 0.8.0-preview
+        - 0.8.1-preview
+        - 0.9.0-preview
+        - 0.10.0-preview
+        - 0.11.0-preview
+        - 0.11.1-preview
+        - 1.0.0-pre.8
+        - 1.0.0-pre.9
+        - 1.0.0-pre.10
+        - 1.0.0
+        - 1.0.1
+        - 1.0.2
+        - 1.0.3
+        - 1.0.4
+        - 1.0.5
+        - 1.1.0
+        - 1.1.1
+        - 1.2.1
+        compatible:
+        - 0.2.1-preview
+        - 0.2.2-preview
+        - 0.2.3-preview
+        - 0.3.1-preview
+        - 0.3.2-preview
+        - 0.4.0-preview
+        - 0.5.0-preview
+        - 0.5.1-preview
+        - 0.6.0-preview
+        - 0.6.1-preview
+        - 0.7.1-preview
+        - 0.8.0-preview
+        - 0.8.1-preview
+        - 0.9.0-preview
+        - 0.10.0-preview
+        - 0.11.0-preview
+        - 0.11.1-preview
+        - 1.0.0-pre.8
+        - 1.0.0-pre.9
+        - 1.0.0-pre.10
+        - 1.0.0
+        - 1.0.1
+        - 1.0.2
+        - 1.0.3
+        - 1.0.4
+        - 1.0.5
+        - 1.1.0
+        - 1.1.1
+        - 1.2.1
+        verified: 
+      dependencies:
+      - name: com.unity.addressables
+        version: 1.19.17
+      - name: com.unity.nuget.newtonsoft-json
+        version: 2.0.0
+      resolvedDependencies:
+      - name: com.unity.addressables
+        version: 1.19.17
+      - name: com.unity.scriptablebuildpipeline
+        version: 1.19.5
+      - name: com.unity.modules.assetbundle
+        version: 1.0.0
+      - name: com.unity.modules.imageconversion
+        version: 1.0.0
+      - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequest
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequestassetbundle
+        version: 1.0.0
+      - name: com.unity.nuget.newtonsoft-json
+        version: 2.0.0
+      keywords:
+      - localization
+      - locale
+      - language
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637819855030000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/com.unity.localization.git
+        revision: f0028e29cc1ef7aba9ede44f69b3c3b391bd18e1
+        path: 
     - packageId: com.unity.netcode.gameobjects@1.0.0-pre.5
       testable: 0
       isDirectDependency: 1
@@ -188,11 +325,13 @@ m_PackageAssets:
         - 1.0.0-pre.3
         - 1.0.0-pre.4
         - 1.0.0-pre.5
+        - 1.0.0-pre.6
         compatible:
         - 1.0.0-pre.2
         - 1.0.0-pre.3
         - 1.0.0-pre.4
         - 1.0.0-pre.5
+        - 1.0.0-pre.6
         verified: 
       dependencies:
       - name: com.unity.modules.animation
@@ -370,11 +509,13 @@ m_PackageAssets:
         - 3.0.6
         - 3.2.0-pre.1
         - 3.2.0-pre.2
+        - 3.2.0-pre.3
         - 4.0.0-pre.1
         compatible:
         - 3.0.6
         - 3.2.0-pre.1
         - 3.2.0-pre.2
+        - 3.2.0-pre.3
         verified: 3.0.6
       dependencies:
       - name: com.unity.ugui
@@ -503,6 +644,8 @@ m_PackageAssets:
         - 1.6.4
         - 1.7.0-pre.1
         - 1.7.0-pre.2
+        - 1.7.0
+        - 1.7.1
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -529,6 +672,8 @@ m_PackageAssets:
         - 1.6.4
         - 1.7.0-pre.1
         - 1.7.0-pre.2
+        - 1.7.0
+        - 1.7.1
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
@@ -2551,6 +2696,7 @@ m_PackageAssets:
         - 1.0.0-pre.3
         - 1.0.0-pre.5
         - 1.0.0-pre.6
+        - 1.1.0
         verified: 
       dependencies:
       - name: com.unity.burst
@@ -2593,6 +2739,450 @@ m_PackageAssets:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/dots.git
         revision: 0fd34b13aa28ca31a5ebe5960f7e1a4b9b2625ce
+        path: 
+    - packageId: com.unity.addressables@1.19.17
+      testable: 0
+      isDirectDependency: 0
+      version: 1.19.17
+      source: 1
+      resolvedPath: C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\Library\PackageCache\com.unity.addressables@1.19.17
+      assetPath: Packages/com.unity.addressables
+      name: com.unity.addressables
+      displayName: Addressables
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: 'The Addressable Asset System allows the developer to ask for
+        an asset via its address. Once an asset (e.g. a prefab) is marked "addressable",
+        it generates an address which can be called from anywhere. Wherever the asset
+        resides (local or remote), the system will locate it and its dependencies,
+        then return it.
+
+
+        Use ''Window->Asset Management->Addressables''
+        to begin working with the system.
+
+
+        Addressables use asynchronous
+        loading to support loading from any location with any collection of dependencies.
+        Whether you have been using direct references, traditional asset bundles,
+        or Resource folders, addressables provide a simpler way to make your game
+        more dynamic. Addressables simultaneously opens up the world of asset bundles
+        while managing all the complexity.
+
+
+        For usage samples, see github.com/Unity-Technologies/Addressables-Sample'
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.0.8-preview
+        - 0.0.12-preview
+        - 0.0.15-preview
+        - 0.0.16-preview
+        - 0.0.18-preview
+        - 0.0.22-preview
+        - 0.0.26-preview
+        - 0.0.27-preview
+        - 0.1.2-preview
+        - 0.2.1-preview
+        - 0.2.2-preview
+        - 0.3.5-preview
+        - 0.4.6-preview
+        - 0.4.8-preview
+        - 0.5.2-preview
+        - 0.5.3-preview
+        - 0.6.6-preview
+        - 0.6.7-preview
+        - 0.6.8-preview
+        - 0.7.4-preview
+        - 0.7.5-preview
+        - 0.8.4-preview
+        - 0.8.6-preview
+        - 1.1.3-preview
+        - 1.1.4-preview
+        - 1.1.5
+        - 1.1.7
+        - 1.1.9
+        - 1.1.10
+        - 1.2.2
+        - 1.2.3
+        - 1.2.4
+        - 1.3.3
+        - 1.3.8
+        - 1.4.0
+        - 1.5.0
+        - 1.5.1
+        - 1.6.0
+        - 1.6.2
+        - 1.7.4
+        - 1.7.5
+        - 1.8.3
+        - 1.8.4
+        - 1.8.5
+        - 1.9.2
+        - 1.10.0
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.2
+        - 1.15.1
+        - 1.16.1
+        - 1.16.6
+        - 1.16.7
+        - 1.16.8
+        - 1.16.10
+        - 1.16.12
+        - 1.16.13
+        - 1.16.15
+        - 1.16.16
+        - 1.16.19
+        - 1.17.0-preview
+        - 1.17.2-preview
+        - 1.17.4-preview
+        - 1.17.5-preview
+        - 1.17.6-preview
+        - 1.17.13
+        - 1.17.15
+        - 1.17.17
+        - 1.18.2
+        - 1.18.4
+        - 1.18.9
+        - 1.18.11
+        - 1.18.13
+        - 1.18.15
+        - 1.18.16
+        - 1.18.19
+        - 1.19.4
+        - 1.19.6
+        - 1.19.9
+        - 1.19.11
+        - 1.19.13
+        - 1.19.14
+        - 1.19.15
+        - 1.19.17
+        - 1.19.18
+        - 1.19.19
+        compatible:
+        - 0.0.8-preview
+        - 0.0.12-preview
+        - 0.0.15-preview
+        - 0.0.16-preview
+        - 0.0.18-preview
+        - 0.0.22-preview
+        - 0.0.26-preview
+        - 0.0.27-preview
+        - 0.1.2-preview
+        - 0.2.1-preview
+        - 0.2.2-preview
+        - 0.3.5-preview
+        - 0.4.6-preview
+        - 0.4.8-preview
+        - 0.5.2-preview
+        - 0.5.3-preview
+        - 0.6.6-preview
+        - 0.6.7-preview
+        - 0.6.8-preview
+        - 0.7.4-preview
+        - 0.7.5-preview
+        - 0.8.4-preview
+        - 0.8.6-preview
+        - 1.1.3-preview
+        - 1.1.4-preview
+        - 1.1.5
+        - 1.1.7
+        - 1.1.9
+        - 1.1.10
+        - 1.2.2
+        - 1.2.3
+        - 1.2.4
+        - 1.3.3
+        - 1.3.8
+        - 1.4.0
+        - 1.5.0
+        - 1.5.1
+        - 1.6.0
+        - 1.6.2
+        - 1.7.4
+        - 1.7.5
+        - 1.8.3
+        - 1.8.4
+        - 1.8.5
+        - 1.9.2
+        - 1.10.0
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.2
+        - 1.15.1
+        - 1.16.1
+        - 1.16.6
+        - 1.16.7
+        - 1.16.8
+        - 1.16.10
+        - 1.16.12
+        - 1.16.13
+        - 1.16.15
+        - 1.16.16
+        - 1.16.19
+        - 1.17.0-preview
+        - 1.17.2-preview
+        - 1.17.4-preview
+        - 1.17.5-preview
+        - 1.17.6-preview
+        - 1.17.13
+        - 1.17.15
+        - 1.17.17
+        - 1.18.2
+        - 1.18.4
+        - 1.18.9
+        - 1.18.11
+        - 1.18.13
+        - 1.18.15
+        - 1.18.16
+        - 1.18.19
+        - 1.19.4
+        - 1.19.6
+        - 1.19.9
+        - 1.19.11
+        - 1.19.13
+        - 1.19.14
+        - 1.19.15
+        - 1.19.17
+        - 1.19.18
+        - 1.19.19
+        verified: 1.18.19
+      dependencies:
+      - name: com.unity.scriptablebuildpipeline
+        version: 1.19.5
+      - name: com.unity.modules.assetbundle
+        version: 1.0.0
+      - name: com.unity.modules.imageconversion
+        version: 1.0.0
+      - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequest
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequestassetbundle
+        version: 1.0.0
+      resolvedDependencies:
+      - name: com.unity.scriptablebuildpipeline
+        version: 1.19.5
+      - name: com.unity.modules.assetbundle
+        version: 1.0.0
+      - name: com.unity.modules.imageconversion
+        version: 1.0.0
+      - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequest
+        version: 1.0.0
+      - name: com.unity.modules.unitywebrequestassetbundle
+        version: 1.0.0
+      keywords:
+      - asset
+      - resources
+      - bundle
+      - bundles
+      - assetbundles
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637774269120000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/Addressables.git
+        revision: 7be4014159163b134b4a460f691b9f3ffb5bbc64
+        path: 
+    - packageId: com.unity.nuget.newtonsoft-json@2.0.0
+      testable: 0
+      isDirectDependency: 0
+      version: 2.0.0
+      source: 1
+      resolvedPath: C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0
+      assetPath: Packages/com.unity.nuget.newtonsoft-json
+      name: com.unity.nuget.newtonsoft-json
+      displayName: Newtonsoft Json
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: 'Newtonsoft Json for use in Unity projects and Unity packages.
+        Currently synced to version 12.0.2.
+
+
+        This package is used for advanced
+        json serialization and deserialization. Most Unity users will be better suited
+        using the existing json tools built into Unity.
+
+        To avoid assembly
+        clashes, please use this package if you intend to use Newtonsoft Json.'
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 1.0.0-preview.2
+        - 1.0.0-preview.3
+        - 1.0.0-preview.4
+        - 1.0.1-preview.1
+        - 1.1.2
+        - 2.0.0-preview
+        - 2.0.0-preview.1
+        - 2.0.0-preview.2
+        - 2.0.0
+        - 2.0.1-preview.1
+        - 2.0.2
+        - 3.0.1
+        compatible:
+        - 1.0.0-preview.2
+        - 1.0.0-preview.3
+        - 1.0.0-preview.4
+        - 1.0.1-preview.1
+        - 1.1.2
+        - 2.0.0-preview
+        - 2.0.0-preview.1
+        - 2.0.0-preview.2
+        - 2.0.0
+        - 2.0.1-preview.1
+        - 2.0.2
+        - 3.0.1
+        verified: 2.0.2
+      dependencies: []
+      resolvedDependencies: []
+      keywords: []
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637237898320000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: https://github.cds.internal.unity3d.com/unity/com.unity.nuget.newtonsoft-json.git
+        revision: d2fd6ed876261bbd82f59199ad711e7667bf633a
+        path: 
+    - packageId: com.unity.test-framework@1.1.29
+      testable: 0
+      isDirectDependency: 0
+      version: 1.1.29
+      source: 1
+      resolvedPath: C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\Library\PackageCache\com.unity.test-framework@1.1.29
+      assetPath: Packages/com.unity.test-framework
+      name: com.unity.test-framework
+      displayName: Test Framework
+      author:
+        name: 
+        email: 
+        url: 
+      category: Unity Test Framework
+      type: 
+      description: Test framework for running Edit mode and Play mode tests in Unity.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 0.0.4-preview
+        - 0.0.29-preview
+        - 1.0.0
+        - 1.0.7
+        - 1.0.9
+        - 1.0.11
+        - 1.0.12
+        - 1.0.13
+        - 1.0.14
+        - 1.0.16
+        - 1.0.17
+        - 1.0.18
+        - 1.1.0
+        - 1.1.1
+        - 1.1.2
+        - 1.1.3
+        - 1.1.5
+        - 1.1.8
+        - 1.1.9
+        - 1.1.11
+        - 1.1.13
+        - 1.1.14
+        - 1.1.16
+        - 1.1.18
+        - 1.1.19
+        - 1.1.20
+        - 1.1.22
+        - 1.1.24
+        - 1.1.26
+        - 1.1.27
+        - 1.1.29
+        - 1.1.30
+        - 1.1.31
+        - 2.0.1-pre.12
+        - 2.0.1-pre.18
+        compatible:
+        - 1.1.29
+        - 1.1.30
+        - 1.1.31
+        - 2.0.1-pre.12
+        - 2.0.1-pre.18
+        verified: 1.1.31
+      dependencies:
+      - name: com.unity.ext.nunit
+        version: 1.0.6
+      - name: com.unity.modules.imgui
+        version: 1.0.0
+      - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      resolvedDependencies:
+      - name: com.unity.ext.nunit
+        version: 1.0.6
+      - name: com.unity.modules.imgui
+        version: 1.0.0
+      - name: com.unity.modules.jsonserialize
+        version: 1.0.0
+      keywords:
+      - Test
+      - TestFramework
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637647922650000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/com.unity.test-framework.git
+        revision: dac53542acdab7a12e9ebf111ac588d0e53cf483
         path: 
     - packageId: com.unity.burst@1.5.4
       testable: 0
@@ -2722,6 +3312,7 @@ m_PackageAssets:
         - 1.6.3
         - 1.6.4
         - 1.7.0-pre.1
+        - 1.7.0
         compatible:
         - 1.1.1
         - 1.1.2
@@ -2801,7 +3392,8 @@ m_PackageAssets:
         - 1.6.3
         - 1.6.4
         - 1.7.0-pre.1
-        verified: 1.4.11
+        - 1.7.0
+        verified: 1.6.4
       dependencies:
       - name: com.unity.mathematics
         version: 1.2.1
@@ -2829,84 +3421,138 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/burst.git
         revision: 1253fdbbb9980df52e2be5de1e0c0ffe54a1dcbf
         path: 
-    - packageId: com.unity.test-framework@1.1.29
+    - packageId: com.unity.scriptablebuildpipeline@1.19.5
       testable: 0
       isDirectDependency: 0
-      version: 1.1.29
+      version: 1.19.5
       source: 1
-      resolvedPath: C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\Library\PackageCache\com.unity.test-framework@1.1.29
-      assetPath: Packages/com.unity.test-framework
-      name: com.unity.test-framework
-      displayName: Test Framework
+      resolvedPath: C:\Users\chio9\Desktop\Unity\Projects\Thesis_V2\Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.5
+      assetPath: Packages/com.unity.scriptablebuildpipeline
+      name: com.unity.scriptablebuildpipeline
+      displayName: Scriptable Build Pipeline
       author:
         name: 
         email: 
         url: 
-      category: Unity Test Framework
+      category: 
       type: 
-      description: Test framework for running Edit mode and Play mode tests in Unity.
+      description: The Scriptable Build Pipeline moves the asset bundle build pipeline
+        to C#.  Use the pre-defined build flows, or create your own using the divided
+        up APIs.  This system improves build time, fixes incremental build, and provides
+        greater flexibility.
       status: 4
       errors: []
       versions:
         all:
-        - 0.0.4-preview
-        - 0.0.29-preview
-        - 1.0.0
-        - 1.0.7
-        - 1.0.9
-        - 1.0.11
-        - 1.0.12
-        - 1.0.13
-        - 1.0.14
-        - 1.0.16
-        - 1.0.17
-        - 1.0.18
-        - 1.1.0
-        - 1.1.1
-        - 1.1.2
-        - 1.1.3
-        - 1.1.5
-        - 1.1.8
-        - 1.1.9
-        - 1.1.11
-        - 1.1.13
-        - 1.1.14
-        - 1.1.16
-        - 1.1.18
-        - 1.1.19
-        - 1.1.20
-        - 1.1.22
-        - 1.1.24
-        - 1.1.26
-        - 1.1.27
-        - 1.1.29
-        - 1.1.30
-        - 2.0.1-pre.12
-        - 2.0.1-pre.18
+        - 0.0.5-preview
+        - 0.0.6-preview
+        - 0.0.8-preview
+        - 0.0.9-preview
+        - 0.0.10-preview
+        - 0.0.14-preview
+        - 0.0.15-preview
+        - 0.1.0-preview
+        - 0.2.0-preview
+        - 1.0.1-preview
+        - 1.1.0-preview
+        - 1.1.1-preview
+        - 1.2.1-preview
+        - 1.3.5-preview
+        - 1.4.1-preview
+        - 1.5.0-preview
+        - 1.5.1
+        - 1.5.2
+        - 1.5.4
+        - 1.5.6
+        - 1.5.10
+        - 1.6.3-preview
+        - 1.6.4-preview
+        - 1.6.5-preview
+        - 1.7.2
+        - 1.7.3
+        - 1.8.2
+        - 1.8.4
+        - 1.8.6
+        - 1.9.0
+        - 1.10.0
+        - 1.11.1
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.0
+        - 1.14.1
+        - 1.15.1
+        - 1.15.2
+        - 1.16.1
+        - 1.17.0
+        - 1.18.0
+        - 1.19.0
+        - 1.19.1
+        - 1.19.2
+        - 1.19.3
+        - 1.19.4
+        - 1.19.5
+        - 1.19.6
         compatible:
-        - 1.1.27
-        - 1.1.29
-        - 1.1.30
-        - 2.0.1-pre.12
-        - 2.0.1-pre.18
-        verified: 1.1.30
-      dependencies:
-      - name: com.unity.ext.nunit
-        version: 1.0.6
-      - name: com.unity.modules.imgui
-        version: 1.0.0
-      - name: com.unity.modules.jsonserialize
-        version: 1.0.0
-      resolvedDependencies:
-      - name: com.unity.ext.nunit
-        version: 1.0.6
-      - name: com.unity.modules.imgui
-        version: 1.0.0
-      - name: com.unity.modules.jsonserialize
-        version: 1.0.0
+        - 0.0.5-preview
+        - 0.0.6-preview
+        - 0.0.8-preview
+        - 0.0.9-preview
+        - 0.0.10-preview
+        - 0.0.14-preview
+        - 0.0.15-preview
+        - 0.1.0-preview
+        - 0.2.0-preview
+        - 1.0.1-preview
+        - 1.1.0-preview
+        - 1.1.1-preview
+        - 1.2.1-preview
+        - 1.3.5-preview
+        - 1.4.1-preview
+        - 1.5.0-preview
+        - 1.5.1
+        - 1.5.2
+        - 1.5.4
+        - 1.5.6
+        - 1.5.10
+        - 1.6.3-preview
+        - 1.6.4-preview
+        - 1.6.5-preview
+        - 1.7.2
+        - 1.7.3
+        - 1.8.2
+        - 1.8.4
+        - 1.8.6
+        - 1.9.0
+        - 1.10.0
+        - 1.11.1
+        - 1.11.2
+        - 1.12.0
+        - 1.13.1
+        - 1.14.0
+        - 1.14.1
+        - 1.15.1
+        - 1.15.2
+        - 1.16.1
+        - 1.17.0
+        - 1.18.0
+        - 1.19.0
+        - 1.19.1
+        - 1.19.2
+        - 1.19.3
+        - 1.19.4
+        - 1.19.5
+        - 1.19.6
+        verified: 1.19.6
+      dependencies: []
+      resolvedDependencies: []
       keywords:
-      - Test
-      - TestFramework
+      - build
+      - bundle
+      - bundles
+      - assetbundles
+      - cache
+      - server
       registry:
         id: main
         name: 
@@ -2919,13 +3565,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637647922650000000
+      datePublishedTicks: 637756830880000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
-        url: git+https://github.com/Unity-Technologies/com.unity.test-framework.git
-        revision: dac53542acdab7a12e9ebf111ac588d0e53cf483
+        url: https://github.cds.internal.unity3d.com/unity/Addressables.git
+        revision: 766b92d8bf75d9d86f8c8de26d8409ae166f84dd
         path: 
     - packageId: com.unity.ext.nunit@1.0.6
       testable: 0
@@ -3072,4 +3718,4 @@ m_PackageAssets:
   m_LocalPackages:
     m_LocalFileStatus: []
 m_ProjectPath: C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Packages
-m_EditorVersion: 2020.3.15f2 (6cf78cb77498)
+m_EditorVersion: 2020.3.30f1 (1fb1bf06830e)

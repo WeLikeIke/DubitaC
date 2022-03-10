@@ -3,7 +3,8 @@ using System.IO;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 //DO NOT REMOVE THIS, IT IS NEEDED!
 using static SerializationExtensions;
@@ -25,7 +26,9 @@ public class ReadyManager : NetworkBehaviour {
     //Server control panel
     public Slider doneSlider;
     public GameObject serverPanel;
-    public TextMeshProUGUI[] readyListText;
+
+    //Localization
+    public LocalizeStringEvent[] readyListText;
 
     private List<List<databaseEntry>> readyList = new List<List<databaseEntry>>();
     private List<string[]> solutionList = new List<string[]>();
@@ -44,8 +47,11 @@ public class ReadyManager : NetworkBehaviour {
         if (serverPanel != null) { serverPanel.SetActive(true); }
 
         for (int i = 0; i < DataManager.lobbiesInUse; i++) {
-            readyListText[i].SetText("0/" + DataManager.allLobbySizes[i]);
-            readyListText[i].rectTransform.parent.gameObject.SetActive(true);
+            ((IntVariable)readyListText[i].StringReference["lobbyNumber"]).Value = i;
+            ((IntVariable)readyListText[i].StringReference["readyClients"]).Value = 0;
+            ((IntVariable)readyListText[i].StringReference["clientsInLobby"]).Value = DataManager.allLobbySizes[i];
+            readyListText[i].StringReference.SetReference("Strings", "_lobby_ready_info");
+            readyListText[i].gameObject.SetActive(true);
 
             readyList.Add(new List<databaseEntry>());
             solutionList.Add(new string[DataManager.allLobbySizes[i]]);
@@ -141,7 +147,7 @@ public class ReadyManager : NetworkBehaviour {
     /// Remote Procedure Call, from client to server.
     /// Triggers a change in the ready list, either by adding the new client or removing an old one.
     /// </summary>
-    /// <param name="lobbyIdx">The lobby of client.</param>
+    /// <param name="lobbyIdx">The lobby of the client.</param>
     /// <param name="userData">The general data of the client.</param>
     [ServerRpc(RequireOwnership = false)]
     public void SendReadyServerRpc(int lobbyIdx, databaseEntry userData) {
@@ -151,7 +157,8 @@ public class ReadyManager : NetworkBehaviour {
             readyList[lobbyIdx].Add(userData);
         }
 
-        readyListText[lobbyIdx].SetText(readyList[lobbyIdx].Count + "/" + DataManager.allLobbySizes[lobbyIdx]);
+        ((IntVariable)readyListText[lobbyIdx].StringReference["readyClients"]).Value = readyList[lobbyIdx].Count;
+        readyListText[lobbyIdx].RefreshString();
     }
 
     /// <summary>
@@ -168,13 +175,13 @@ public class ReadyManager : NetworkBehaviour {
         if (idx == -1) {
             idx = readyList[lobbyIdx].Count;
             readyList[lobbyIdx].Add(userData);
-            readyListText[lobbyIdx].SetText(readyList[lobbyIdx].Count + "/" + DataManager.allLobbySizes[lobbyIdx]);
+
+            ((IntVariable)readyListText[lobbyIdx].StringReference["readyClients"]).Value = readyList[lobbyIdx].Count;
+            readyListText[lobbyIdx].RefreshString();
         }
         //Save the client's solution
         solutionList[lobbyIdx][idx] = solution;
 
-
-        //DataManager.AddToLeaderboard(lobbyIdx, userData, idx);
         CheckAllAndShareData();
     }
 

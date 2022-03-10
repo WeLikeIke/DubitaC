@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Components;
 using Unity.Netcode;
-using TMPro;
 
 /// <summary>
 /// Class to keep track of the time passing during a round.
@@ -13,23 +13,18 @@ public class RoundTimer : MonoBehaviour {
     public ReadyManager RM;
     public DoubtManager DM;
 
-    public TextMeshProUGUI timerText;
-    private float roundTimer;
-
     public Image timerImage;
     public bool isDoubtScene;
 
-    private bool primed;
+    //Localization
+    public LocalizeStringEvent timerText;
+    public int displayTime = 0;
+
+    private float roundTimer;
+    private bool primed = true;
     private float currentTime = 0f;
 
     void Start() {
-
-        //Editor specific debugging
-#if UNITY_EDITOR
-        primed = false;
-#else
-        primed = true;
-#endif
         //Retrieving the maximum amount of time
         roundTimer = DataManager.currentTimer;
 
@@ -39,11 +34,6 @@ public class RoundTimer : MonoBehaviour {
 
     void Update() {
         Tick();
-
-    //Editor specific debugging
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) { primed = !primed; }
-#endif
     }
 
     /// <summary>
@@ -80,12 +70,13 @@ public class RoundTimer : MonoBehaviour {
 
         //When the available time finishes
         if (currentTime >= roundTimer) {
-            timerText.SetText("0");
+            displayTime = 0;
             TimesUp();
         } else {
-            int roundedTime = (int)(roundTimer - currentTime);
-            timerText.SetText(roundedTime.ToString());
+            displayTime = (int)(roundTimer - currentTime);
         }
+        //Refresh the timer server text every tick
+        timerText.RefreshString();
 
     }
 

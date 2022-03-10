@@ -1,7 +1,7 @@
-using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Components;
 
 /// <summary>
 /// Prefab class managing the details of an Avatar and exposing the functions to interact with it.
@@ -13,7 +13,10 @@ public class AvatarUI : MonoBehaviour {
     public Image backgroundPanel;
     public Button selectionButton;
     public Image spriteArea;
-    public TextMeshProUGUI points;
+
+    //Localization
+    public string points = "100";
+    public LocalizeStringEvent avatarInfoText;
 
     void Start() {
 
@@ -50,7 +53,8 @@ public class AvatarUI : MonoBehaviour {
 
         spriteId = spriteName;
         spriteArea.sprite = Cosmetics.GetAvatar(spriteName, state);
-        points.SetText(arr[1]);
+        points = arr[1];
+        avatarInfoText.RefreshString();
 
         selectionButton.onClick.AddListener(delegate{AM.SelectThis(this);});
     }

@@ -10,8 +10,9 @@ using UnityEngine;
 /// Class responsible to manage the interaction with the database and the validation of the connections with the server.
 /// The maximum amount of points a user can have is stored in constant <see cref="maxPointsPossible"/>.
 /// The string that is used during the clientside salting is stored in constant <see cref="sharedSalt"/>.
+/// The number of iterations for the secure hashing algorithm is stored in constant <see cref="secureHashIterations"/>.
+/// The size in bytes of the hashed user password is stored in constant <see cref="hashSize"/>.
 /// The Encoding that has been chosen is stored in the readonly field <see cref="currentEncoding"/>.
-/// The Hash function that has been chosen is stored in the readonly field <see cref="hashAlgorithm"/>.
 /// The separator in the database file is stored in constant <see cref="separator"/>.
 /// The relative path to the database folder is stored in constant <see cref="relativeDatabasePath"/>.
 /// The path to the database file is stored in constant <see cref="databaseFile"/>.
@@ -20,9 +21,10 @@ using UnityEngine;
 public class AccountManager : NetworkBehaviour {
     private const ushort maxPointsPossible = 9999;
     private const string sharedSalt = "11/09/2021-11/12/2021-28/03/2022";
-    //Not allowed to save 2 classes as a const, so we make them readonly
+    private const int secureHashIterations = 1000;
+    private const int hashSize = 32;
+    //Not allowed to save classes as a const, so we make the Encoding readonly
     private readonly Encoding currentEncoding = new UTF8Encoding(true);
-    private readonly HashAlgorithm hashAlgorithm = new SHA256Managed();
     private const string separator = ",";
     private const string relativeDatabasePath = "/Database";
     private const string databaseFile = "/accounts.csv";
@@ -35,13 +37,17 @@ public class AccountManager : NetworkBehaviour {
     public NetworkWrapper NW;
     public MySceneManager MSM;
 
-    public string databasePath;
-    public string pointsFieldFormat;
+    private int saltSize;
+    private string databasePath;
+    private string pointsFieldFormat;
 
     
     
     //We subscribe to the connection approval callback to execute custom code when a client tries to connect to the server
     void Start() {
+
+        //Length recommended online: as long, or longer, than the hash length and divisible by 3
+        saltSize = hashSize + (2 * hashSize % 3);
 
         //Finding the absolute path of the database by checking the relativeDatabasePath constant.
         databasePath = Application.dataPath + relativeDatabasePath + databaseFile;
@@ -52,6 +58,7 @@ public class AccountManager : NetworkBehaviour {
         //Finding out how many leading zeros might be needed by checking the maxPointsPossible constant
         pointsFieldFormat = "D" + maxPointsPossible.ToString().Length.ToString();
 
+        //User authentication only happens in the first scene
         if (username != null && password != null) {
             NetworkManager.Singleton.ConnectionApprovalCallback += ValidateLogin;
         }
@@ -174,7 +181,7 @@ public class AccountManager : NetworkBehaviour {
     /// <paramref name="connectionData"/> follows the format:
     /// First byte containing 0 or 1, representing known or new credentials respectively.
     /// Next series of bytes of variable length contain the username.
-    /// The last 32 bytes always represent the salted and hashed password.
+    /// The last <see cref="hashSize"/> bytes always represent the salted and hashed password.
     /// </summary>
     /// <param name="connectionData">Array of bytes representing the data sent from client to server to validate the connection.</param>
     /// <returns>The tuple containing the data parsed in their correct format.</returns>
@@ -183,11 +190,11 @@ public class AccountManager : NetworkBehaviour {
         bool newRegistration = (connectionData[0] == 1);
 
         //Unknown Length, plainText of the username
-        string username = FromBytesToPlainText(connectionData, 1, connectionData.Length - 33);
+        string username = FromBytesToPlainText(connectionData, 1, connectionData.Length - (hashSize + 1));
 
-        //Last 32 bytes, Hash of salted user password
-        byte[] password = new byte[32];
-        Array.Copy(connectionData, connectionData.Length - 32, password, 0, 32);
+        //Last hashSize bytes, Hash of salted user password
+        byte[] password = new byte[hashSize];
+        Array.Copy(connectionData, connectionData.Length - hashSize, password, 0, hashSize);
 
         return (newRegistration, username, password);
     }
@@ -224,13 +231,15 @@ public class AccountManager : NetworkBehaviour {
     private void RequirementsCheck() {
         //Check for the username requirements
         if (!CheckStringLength(username.text, 1, 20)) {
-            DataManager.SetFeedback("_bad_username");
+            DataManager.databaseFeedback = "_bad_username";
+            DataManager.wasRejected = true;
             MSM.LoadSceneZero();
         }
 
         //Check for the password requirements
         if (!CheckStringLength(password.text, 8, 20)) {
-            DataManager.SetFeedback("_bad_password");
+            DataManager.databaseFeedback =  "_bad_password";
+            DataManager.wasRejected = true;
             MSM.LoadSceneZero();
         }
     }
@@ -247,12 +256,12 @@ public class AccountManager : NetworkBehaviour {
     }
 
     /// <summary>
-    /// Utility function to generate a random sequence of 33 bytes (length recommended online).
+    /// Utility function to generate a random sequence of <see cref="saltSize"/> bytes.
     /// To ensure cryptographically secure randomness we use <see cref="RNGCryptoServiceProvider"/> from <see cref="System.Security.Cryptography"/>.
     /// </summary>
     /// <returns>Returns a cryptographically secure random byte array.</returns>
     private byte[] GenerateSalt() {
-        byte[] salt = new byte[33];
+        byte[] salt = new byte[saltSize];
         RNGCryptoServiceProvider rand = new RNGCryptoServiceProvider();
         rand.GetBytes(salt);
 
@@ -304,8 +313,7 @@ public class AccountManager : NetworkBehaviour {
     /// <param name="salt">Salt to be used to salt the <paramref name="password"/> byte array.</param>
     /// <returns>A salted and hashed array of the original password.</returns>
     private byte[] SaltAndHash(byte[] password, byte[] salt) {
-        byte[] salted = Salt(password, salt);
-        return hashAlgorithm.ComputeHash(salted);
+        return new Rfc2898DeriveBytes(password, salt, secureHashIterations).GetBytes(hashSize);
     }
 
     /// <summary>

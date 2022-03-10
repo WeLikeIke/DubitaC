@@ -1,5 +1,6 @@
 using System.Net;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using Unity.Netcode;
 using TMPro;
@@ -13,17 +14,18 @@ public class IpManager : MonoBehaviour{
     private const string localhost = "127.0.0.1";
 
 
-    public TextMeshProUGUI currentAddress;
-    public TMP_InputField ipField;
-    public LocalizableText feedbackText;
-    public Button playButton;
+    public LocalizeStringEvent currentAddressText;
+    public LocalizeStringEvent feedbackText;
+    public string address;
 
+    public TMP_InputField ipField;
+    public Button playButton;
 
     void Start() {
         string localIpv4 = FindLocalIpv4();
-
+        address = localIpv4;
+        
         SetServerIpv4(localIpv4);
-        currentAddress.SetText(localIpv4); 
     }
 
     /// <summary>
@@ -46,12 +48,14 @@ public class IpManager : MonoBehaviour{
             SetServerIpv4(ipString);
 
             playButton.interactable = true;
-            feedbackText.ChangeLabel("_selected_ip_address");
-            feedbackText.ChangeColor(Cosmetics.correctColor);
+
+            feedbackText.StringReference.SetReference("Strings", "_selected_ip_address");
+            feedbackText.GetComponent<TextMeshProUGUI>().color = Cosmetics.correctColor;
         } else {
             playButton.interactable = false;
-            feedbackText.ChangeLabel("_bad_ip_address");
-            feedbackText.ChangeColor(Cosmetics.wrongColor);
+
+            feedbackText.StringReference.SetReference("Strings", "_bad_ip_address");
+            feedbackText.GetComponent<TextMeshProUGUI>().color = Cosmetics.wrongColor;
         }
     }
 

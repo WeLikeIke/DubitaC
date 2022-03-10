@@ -1,0 +1,627 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Strings Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Strings
+  m_TableCollectionNameGuidString: 2bd8424e499ac664187c1539b8322694
+  m_Entries:
+  - m_Id: 912163074048
+    m_Key: _avatar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 333020895113216
+    m_Key: _avatar_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074049
+    m_Key: _back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074050
+    m_Key: _back_to_menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074051
+    m_Key: _bad_ip_address
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074052
+    m_Key: _bad_password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074053
+    m_Key: _bad_request
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074054
+    m_Key: _bad_username
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074055
+    m_Key: _buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074056
+    m_Key: _clear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074057
+    m_Key: _client
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51189125738496
+    m_Key: _continue_as
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1610011380281344
+    m_Key: _correct_compilation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074060
+    m_Key: _correct_doubt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074061
+    m_Key: _correct_output
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074062
+    m_Key: _correct_result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074063
+    m_Key: _cosmetic_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074064
+    m_Key: _cpp_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074065
+    m_Key: _cpp_directory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074066
+    m_Key: _crash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309826895872
+    m_Key: _crash_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437697
+    m_Key: _crashed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074067
+    m_Key: _create_account
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074068
+    m_Key: _current_ip_address
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074069
+    m_Key: _current_leaderboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91413029580800
+    m_Key: _current_points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074070
+    m_Key: _currently_have
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074071
+    m_Key: _default_path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074072
+    m_Key: _disconnect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437698
+    m_Key: _did_not_compile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074073
+    m_Key: _doubt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074074
+    m_Key: _doubt_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1610011426418688
+    m_Key: _doubt_on_compilation_result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 726055483076608
+    m_Key: _doubt_result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074075
+    m_Key: _doubts_received
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074076
+    m_Key: _expected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1500940710965248
+    m_Key: _expected_wrong_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074077
+    m_Key: _export
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074078
+    m_Key: _export_all_solution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074079
+    m_Key: _export_best_solution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074080
+    m_Key: _export_my_solution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074081
+    m_Key: _goal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074082
+    m_Key: _got_it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074083
+    m_Key: _half_doubt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074084
+    m_Key: _hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074085
+    m_Key: _hints
+    m_Metadata:
+      m_Items: []
+  - m_Id: 753994731876352
+    m_Key: _hint_content
+    m_Metadata:
+      m_Items: []
+  - m_Id: 531473440960512
+    m_Key: _hint_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074086
+    m_Key: _how_to_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074087
+    m_Key: _i_expected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074088
+    m_Key: _input_arguments
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074089
+    m_Key: _input_given
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074090
+    m_Key: _instead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1501550797647872
+    m_Key: _instead_correct_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074092
+    m_Key: _leaderboard_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074093
+    m_Key: _loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074094
+    m_Key: _lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 330488173031424
+    m_Key: _lobby_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 513712492900352
+    m_Key: _lobby_ready_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074095
+    m_Key: _localization_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074096
+    m_Key: _log
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074097
+    m_Key: _next_time_avatar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074098
+    m_Key: _no_compile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559168
+    m_Key: _no_compile_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074099
+    m_Key: _no_doubt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 738393854570496
+    m_Key: _no_doubt_result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074100
+    m_Key: _not_compile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074101
+    m_Key: _not_expected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074102
+    m_Key: _password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074103
+    m_Key: _play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074104
+    m_Key: _player
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074105
+    m_Key: _points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074106
+    m_Key: _progress_until_next_round
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074107
+    m_Key: _question_solved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074108
+    m_Key: _ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074109
+    m_Key: _ready_players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074110
+    m_Key: _requires
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074111
+    m_Key: _remove_doubt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074112
+    m_Key: _return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437700
+    m_Key: _return_expected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437701
+    m_Key: _returned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074113
+    m_Key: _save_best_solution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074114
+    m_Key: _save_my_solution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074115
+    m_Key: _seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074116
+    m_Key: _select_code_question
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074117
+    m_Key: _select_ip_address
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074118
+    m_Key: _select_timer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074119
+    m_Key: _selected_ip_address
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074120
+    m_Key: _server
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074121
+    m_Key: _server_address_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074122
+    m_Key: _server_code_question_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074123
+    m_Key: _server_control_panel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074124
+    m_Key: _server_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074125
+    m_Key: _server_timer_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074126
+    m_Key: _session_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074127
+    m_Key: _session_recap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074128
+    m_Key: _settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074129
+    m_Key: _solution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074130
+    m_Key: _solution_result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074131
+    m_Key: _start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074132
+    m_Key: _starting_prize
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074133
+    m_Key: _terrible_doubt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074134
+    m_Key: _test
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074135
+    m_Key: _this_session
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074137
+    m_Key: _time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 758581249437702
+    m_Key: _timedout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074136
+    m_Key: _timeout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559169
+    m_Key: _timeout_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074138
+    m_Key: _timeout_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559170
+    m_Key: _timeout_literal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 506887420768256
+    m_Key: _time_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074139
+    m_Key: _time_left
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074140
+    m_Key: _tutorial_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074141
+    m_Key: _tutorial_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074142
+    m_Key: _tutorial_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074143
+    m_Key: _tutorial_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912163074144
+    m_Key: _tutorial_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268352
+    m_Key: _tutorial_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268353
+    m_Key: _unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268354
+    m_Key: _username
+    m_Metadata:
+      m_Items: []
+  - m_Id: 528586967085056
+    m_Key: _value_points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268355
+    m_Key: _volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268356
+    m_Key: _waiting_slideshow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268357
+    m_Key: _with_input
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268358
+    m_Key: _wrong_doubt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268359
+    m_Key: _wrong_output
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563309927559171
+    m_Key: _wrong_output_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268360
+    m_Key: _slopeBetween2Points_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268361
+    m_Key: _slopeBetween2Points_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268362
+    m_Key: _slopeBetween2Points_hint_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268363
+    m_Key: _triangleArea_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268364
+    m_Key: _triangleArea_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268365
+    m_Key: _chainingConditions_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268366
+    m_Key: _chainingConditions_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268367
+    m_Key: _chainingConditions_hint_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268368
+    m_Key: _sumOf2Bits_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268369
+    m_Key: _sumOf2Bits_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268370
+    m_Key: _sumOf2Bits_hint_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268371
+    m_Key: _limitChecking_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268372
+    m_Key: _limitChecking_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268373
+    m_Key: _limitChecking_hint_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268374
+    m_Key: _helloWorld_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268375
+    m_Key: _helloWorld_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268376
+    m_Key: _fibonacci_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268377
+    m_Key: _fibonacci_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268378
+    m_Key: _fibonacci_hint_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268379
+    m_Key: _structTraversal_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268380
+    m_Key: _structTraversal_hint_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268381
+    m_Key: _structTraversal_hint_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 912167268382
+    m_Key: _structTraversal_hint_3
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1646466816966

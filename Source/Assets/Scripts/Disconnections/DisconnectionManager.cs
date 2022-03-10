@@ -1,5 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 
 
 /// <summary>
@@ -27,7 +29,8 @@ public class DisconnectionManager : MonoBehaviour {
     private void LastRites(ulong clientId) {
         if (!NetworkManager.Singleton.IsServer) {
             if (cosmeticPanel == null) {
-                DataManager.SetFeedback("_bad_request");
+                DataManager.databaseFeedback =  "_bad_request";
+                DataManager.wasRejected = true;
                 MSM.LoadSceneZero();
             } else {
                 cosmeticPanel.SetActive(true);

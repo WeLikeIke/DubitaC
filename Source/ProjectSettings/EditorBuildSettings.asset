@@ -20,7 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalScoreboard.unity
     guid: 149aa3b64c0bc3d4ca8a460449dd90d5
-  - enabled: 0
-    path: Assets/Scenes/GithubIssue.unity
-    guid: e4f0081d0747ee649b9b161b25a396dd
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: ba9f96910fcc5d14c82633d4599a98b3, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: fa8aff52e8200cd45bf5ecc533e5eccc, type: 2}

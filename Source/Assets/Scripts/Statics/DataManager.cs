@@ -46,6 +46,7 @@ public static class DataManager {
     #endregion
 
     #region SettingsVar
+    public static bool wasRejected = false;
     public static float currentVolume = 100f;
     public static int currentTimeout = 2;
     public static string currentPath = Application.dataPath + "/Cpps";
@@ -54,31 +55,37 @@ public static class DataManager {
     #endregion
 
     #region LocalizationVar
-    public static string currentLanguage = "ENG";
-    public static Dictionary<string, string> localization = null;
-
-
+    public static int currentLanguage = 0;
     public static string databaseFeedback = "";
-    public static string currentBuild = "";
 
     #endregion
 
     #region SettingsSetters
-    //The function takes a float because that is the return value of an interaction with an external slider
-    //By construction value will always be an integer between 0 and 4, the multiplication by 25 is to have a percentage result
+    /// <summary>
+    /// Setter for the the volume, by construction <paramref name="value"/> will always be an integer between 0 and 4, 
+    /// the multiplication by 25 will return a percentage result.
+    /// </summary>
+    /// <param name="value">Return value of an interaction with an external slider.</param>
     public static void SetVolume(float value) { currentVolume = 25f * value; }
 
-    //The function takes an int that is the return value of an interaction with a multiple choice box
-    //By construction value will always be an integer between 0 and 5, the formula converts it into the corresponding seconds: 1, 2, 3, 5, 7, 9
+    /// <summary>
+    /// Setter for the timeout, by construction <paramref name="value"/> will always be an integer between 0 and 5, 
+    /// the formula converts it into the corresponding seconds: 1, 2, 3, 5, 7, 9.
+    /// </summary>
+    /// <param name="value">Return value of an interaction with a multiple choice box.</param>
     public static void SetTimeout(int value) { currentTimeout = 1 + value + value / 3 + value / 4 + value / 5; }
 
-    //value should be a valid path into a directory, the assignation does not happen otherwise
+    /// <summary>
+    /// Setter for the cpp path, the existence of path <paramref name="value"/> must have been checked beforehand.
+    /// </summary>
+    /// <param name="value">Return value of an interaction with an input field containing a path.</param>
     public static void SetPath(string value) { currentPath = value; }
-    public static void SetFeedback(string value) { databaseFeedback = value; }
 
-    //The function takes a string because that is the return value of an interaction with an input field
-    //By construction value will always contain an integer or the empty string,
-    //in case of the empty string or zero the default value is used, otherwise value is parsed into an int
+    /// <summary>
+    /// Setter for the available time, by construction <paramref name="value"/> will always contain an integer or the empty string.
+    /// In case of the empty string or zero the default value is used, otherwise <paramref name="value"/> is parsed into an int.
+    /// </summary>
+    /// <param name="value">Return value of an interaction with an input field containing an int.</param>
     public static void SetTimer(string value) {
         if (value == "0" || string.IsNullOrEmpty(value)) {
             currentTimer = defaultTimer;
@@ -88,40 +95,6 @@ public static class DataManager {
     }
 
     #endregion
-
-
-    /// <summary>
-    /// Loads the current localization dictionary by reading <see cref="currentLanguage"/>.
-    /// </summary>
-    public static void LoadDict() {
-        localization = new Dictionary<string, string>();
-
-        //Even though the localization is a .csv file, Resources.load forbids the use of the extension, treating every TextAsset as a .txt
-        TextAsset localizationFile = Resources.Load("Localization/" + currentLanguage + "_localization") as TextAsset;
-
-        //A valid localization file contains one entry: "_label","text" for each row
-        string[] localizationLines = localizationFile.ToString().Split(new[] { '\n' },StringSplitOptions.RemoveEmptyEntries);
-
-        //An underscore in front of the label is mandatory
-        //The double quotes around _label and text are mandatory
-        //The comma between "_label" and "text" is mandatory
-        //Double quote inside "_label" or "text" are forbidden
-        //Single quotes and commas inside "text" are allowed
-        //Any label format different from: _lowercase_words_and_underscore_spaces is discouraged
-        for (int i = 0;i < localizationLines.Length; i++) {
-            bool betweenQuotes = false;
-            for (int j = 0; j < localizationLines[i].Length; j++) {
-
-                if (localizationLines[i][j] == '"') {
-                    betweenQuotes = !betweenQuotes;
-                }
-
-                if (localizationLines[i][j] == ',' && !betweenQuotes) {
-                    localization[localizationLines[i].Substring(1, j - 2)] = localizationLines[i].Substring(j + 2, localizationLines[i].Length - (j + 4));
-                }
-            }
-        }
-    }
 
     /// <summary>
     /// Extension method of the <see cref="Slider"/> class to update the value on the progress bar percentage wise.
