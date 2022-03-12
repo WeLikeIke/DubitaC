@@ -62,7 +62,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Localization.Tables.AssetTable
     - UnityEngine.Localization.Tables.SharedTableData
     - UnityEngine.Localization.Tables.StringTable
-    - UnityEngine.Localization.VariantsPropertyDriver
     Unity.Netcode.Runtime.dll:
     - Unity.Netcode.NetworkManager
     - Unity.Netcode.NetworkObject
@@ -1367,4 +1366,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Doubt.unity
   - Assets/Scenes/Scoring.unity
   - Assets/Scenes/FinalScoreboard.unity
-  playerPath: C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Builds/Client_v1.3/DubitaC.exe
+  playerPath: C:/Users/chio9/Desktop/Unity/Projects/Thesis_V2/Builds/Server_v1.3/DubitaC.exe

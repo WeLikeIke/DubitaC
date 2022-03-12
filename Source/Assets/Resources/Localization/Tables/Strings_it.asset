@@ -197,10 +197,8 @@ MonoBehaviour:
   - m_Id: 912163074144
     m_Localized: "Presentazione, il gioco \xE8 finito, adesso il punteggion verr\xE0
       calcolato mentre tutti guardano le soluzioni e i dubbi.<br>Rosso: Lista di
-      chi \xE8 stato dubitato, Viola: Lista di chi ha dubitato, Blu: Nomi utente
-      degli interessati, Azzurro: Dettagli del dubbio, Verde: Valori ritornati dalla
-      soluzione e dal server quando forniti dello stesso input, Giallo: Voto finale
-      del dubbio."
+      chi \xE8 stato dubitato, Viola: Lista di chi ha dubitato, Blu: Tutti i dettagli
+      riguardante un dubbio e le sue esecuzioni, Giallo: Voto finale del dubbio."
     m_Metadata:
       m_Items: []
   - m_Id: 912163074143
@@ -209,14 +207,15 @@ MonoBehaviour:
       di conseguenza.<br>Rosso: Ritorna alla schermata precedente, Viola: Dopo aver
       dubitato la soluzione di un giocatore, \xE8 possibile rimuovere il dubbio con
       questo pulsante, Blu: L'input che pensi far\xE0 fallire la soluzione del giocatore
-      selezionato (NECESSARIO), Azzurro: Cosa pensi succeder\xE0 alla soluzion una
-      volta fornita del tuo input? Ritorner\xE0 un valore errato, non compiler\xE0
-      affatto, verr\xE0 interrotta perch\xE8 impiegava troppo a terminare or terminer\xE0
-      erroneament con un eccezione o peggio (NECESSARIO, ALMENO UNA), Verde: Qual'\xE8
-      l'output corretto una volta fornito il tuo input? Il dubbio \xE8 considerato
-      completamente corretto solo se sei in grado di rispondere anche a questo! (NECESSARIO),
-      Arancione: Conferma il dubbio con i valori sopra specificati (Puoi dubitare
-      ogni giocatore una sola volta, un nuovo dubbio sovrascriver\xE0 quello vecchio)."
+      selezionato, Azzurro: Cosa pensi succeder\xE0 alla soluzion una volta fornita
+      del tuo input? Ritorner\xE0 un valore errato, non compiler\xE0 affatto, verr\xE0
+      interrotta perch\xE8 impiegava troppo a terminare or terminer\xE0 erroneamente
+      con un eccezione o peggio (NECESSARIO), Verde: Qual'\xE8 l'output corretto
+      una volta fornito il tuo input? Il dubbio \xE8 considerato completamente corretto
+      solo se sei in grado di rispondere anche a questo!, Giallo: Il valore errato
+      ritornato dalla soluzione, Arancione: Conferma il dubbio con i valori sopra
+      specificati (Puoi dubitare ogni giocatore una sola volta, un nuovo dubbio sovrascriver\xE0
+      quello vecchio)."
     m_Metadata:
       m_Items: []
   - m_Id: 912163074142

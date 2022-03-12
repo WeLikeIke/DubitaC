@@ -5,10 +5,10 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 //DO NOT REMOVE THIS, IT IS NEEDED!
 using static SerializationExtensions;
-using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 /// <summary>
 /// General manager of the doubting round.

@@ -21,14 +21,15 @@ At the end of the game session the final leaderboard depends on the performance 
 ## What is a doubt? ##
 A doubt is composed of 4 parts:
 1. A target solution and, implicitly, a doubter client.
-2. An input that the doubter believes would cause trouble when given to the target solution.
-3. An output that the doubter believes *should* be returned by a "perfect" solution when the input at point 2 is given.
-4. Either an output or one of the possible alternatives, that the doubter believes *will* be returned by the target solution when the input at point 2 is given.
+2. A type:
+	2.1. Doubting on non compilation.
+	2.2. Doubting on a wrong return value.
+	2.3. Doubting on a timeout.
+	2.4. Doubting on an unexpected termination, either with an exception or worse.
+3. An input that the doubter believes would cause trouble when given to the target solution, if the type is not "Non compilation".
+4. An output that the doubter believes *should* be returned by a "perfect" solution when the input at point 2 is given, if the type is not "Non compilation".
+5. An output that the doubter believes *will* be returned by the target solution when the input at point 2 is given, only if the type is "Returns a worng value".
 
-The possible alternatives of point 4 are:
-1. Doubting that the solution will not compile.
-2. Doubting that the solution will timeout.
-3. Doubting that the solution will terminate unexpectedly, either with an exception or worse.
 
 The goal of the doubts is to create them correctly and reduce the score of the target, this is why it is important to understand the code and create the appropriate "output" doubt, since recognizing a no compilation, no termination or crash will grant the user a lot of points, while removing from the target even more.
 
@@ -45,7 +46,12 @@ DubitaC, in the current version, can **only** be played on a **Local network** o
 
 The maximum number of concurrent players is **24**, divided in 4 lobbies, while the minimum is **2**, additionally, there must always be **one server online**.
 
-The minimum supported resolution is **1024x768**, smaller than this you might experience **UI clipping**.
+The supported resolution are:
+1. **16:9**
+2. **16:10**
+3. **4:3**
+4. **1:1**
+With different resolutions you might experience **UI clipping**.
 
 ## How to play ##
 Automatic Install:
@@ -67,7 +73,7 @@ In step 3, $InstallationDir$ should correspond to the directory where you extrac
 **Step 3 cannot be skipped for manual install, it is not necessary with the installer, since it automatically runs a .bat file to add the path to the environment variable.**
 
 ## What can be found in this repository? ##
-Since DubitaC is completely Open Source from version 1.2, the repository contains:
+Since DubitaC is completely Open Source from version 1.3, the repository contains:
 1. The complete source code, from scripts to Unity assets.
 2. The 2 latest builds, for Server and Client.
 3. The Automatic documentation created by doxygen.
@@ -75,21 +81,3 @@ Since DubitaC is completely Open Source from version 1.2, the repository contain
 5. The original Thesis paper, with relative reference manual as an appendix.
 
 Feel free to contribute!
-
-
-to add a localization
-go to project settings / Localization
-click on locale generator and from the panel that appears, select the new language
-click on generate locale and select the folder Assets/Resources/Localization/Locales
-create a country flag sprite
-add the sprite to Assets/Resources/Localization
-from the editor open Window/Asset Management/Localization Scenes Controls
-tick track changes
-select active locale as the just generated locale
-click on MainMenu/Main Camera/Canvas/Background/TitleScreenPanel/LocalizationButton
-On the Image component change the Source Image with the country flag sprite you created
-untick track changes
-create a csv file containing the localization with the header in format: Key,nameOfTheLocale
-from editor open Window/Asset Management/Localization Tables
-click on the triple vertical dots in the top right, Import/CSV File
-select the localization csv

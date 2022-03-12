@@ -18,4 +18,4 @@ Clicking on either executable will start the game in the corresponding mode (Cli
 Dentro ogni "Build" (le cartelle che iniziano con Client e Server) troverai un file eseguibile chiamato DubitaC.exe.
 Cliccando su uno dei due, il gioco inizierà nella modalità corrispondente (Client o Server).
 
--DubitaC V1.2
+-DubitaC V1.3

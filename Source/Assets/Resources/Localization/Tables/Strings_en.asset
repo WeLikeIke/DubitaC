@@ -194,9 +194,8 @@ MonoBehaviour:
   - m_Id: 912163074144
     m_Localized: 'Slideshow, the game has ended, now the points will be calculated
       by showing everyone all the solutions and doubts.<br>Red: The list of targets
-      of doubts, Purple: The list of doubters, Blue: Explicit usernames of the current
-      doubt, Cyan: Doubt specifics, Green: solution result and server result when
-      given the same input, Yellow: Final doubt grading.'
+      of doubts, Purple: The list of doubters, Blue: All the details regarding a
+      doubt and its executions, Yellow: Final doubt grading.'
     m_Metadata:
       m_Items: []
   - m_Id: 912163074143
@@ -204,13 +203,13 @@ MonoBehaviour:
       would not return the correct output, then fill the doubt fields accordingly.<br>Red:
       Returns to the previous screen, Purple: After having doubted a player''s solution
       it is possible to remove it by pressing this button, Blue: The input that you
-      think will fail the player''s solution (MANDATORY), Cyan: What do you think
-      the solution will do once given your input? Return a wrong value, no compile
-      at all, timing out or crashing with an exception or worse (MANDATORY, AT LEAST
-      ONE), Green: What is the correct output when given your input? To consider
-      the doubt completely correct you also have to know this! (MANDATORY), Orange:
-      Confirm the doubt with the above parameters (Doubts against the same player
-      will be overwritten by the latest one).'
+      think will fail the player''s solution, Cyan: What do you think the solution
+      will do once given your input? Return a wrong value, no compile at all, timing
+      out or crashing with an exception or worse (MANDATORY), Yellow: The wrong value
+      returned by the solution, Green: What is the correct output when given your
+      input? To consider the doubt completely correct you also have to know this!
+      (MANDATORY), Orange: Confirm the doubt with the above parameters (Doubts against
+      the same player will be overwritten by the latest one).'
     m_Metadata:
       m_Items: []
   - m_Id: 912163074142
