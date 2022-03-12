@@ -22,10 +22,10 @@ At the end of the game session the final leaderboard depends on the performance 
 A doubt is composed of 4 parts:
 1. A target solution and, implicitly, a doubter client.
 2. A type:
-	2.1. Doubting on non compilation.
-	2.2. Doubting on a wrong return value.
-	2.3. Doubting on a timeout.
-	2.4. Doubting on an unexpected termination, either with an exception or worse.
+	1. Doubting on non compilation.
+	2. Doubting on a wrong return value.
+	3. Doubting on a timeout.
+	4. Doubting on an unexpected termination, either with an exception or worse.
 3. An input that the doubter believes would cause trouble when given to the target solution, if the type is not "Non compilation".
 4. An output that the doubter believes *should* be returned by a "perfect" solution when the input at point 2 is given, if the type is not "Non compilation".
 5. An output that the doubter believes *will* be returned by the target solution when the input at point 2 is given, only if the type is "Returns a worng value".
@@ -47,10 +47,11 @@ DubitaC, in the current version, can **only** be played on a **Local network** o
 The maximum number of concurrent players is **24**, divided in 4 lobbies, while the minimum is **2**, additionally, there must always be **one server online**.
 
 The supported resolution are:
-1. **16:9**
-2. **16:10**
-3. **4:3**
-4. **1:1**
+1. 16:9
+2. 16:10
+3. 4:3
+4. 1:1
+
 With different resolutions you might experience **UI clipping**.
 
 ## How to play ##
