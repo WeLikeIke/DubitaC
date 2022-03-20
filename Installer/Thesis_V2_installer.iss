@@ -29,6 +29,7 @@ LZMANumBlockThreads=2
 LZMANumFastBytes=273
 WizardStyle=modern
 MinVersion="6.2"
+SetupIconFile=Installer_Logo.ico
 
 [Languages]
 Name: "ENG"; MessagesFile: "compiler:Default.isl"
